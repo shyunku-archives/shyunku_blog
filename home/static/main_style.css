@@ -1,0 +1,88 @@
+body, h1, h2, h3, h4{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html, body{
+    height: 100%;
+}
+
+.background-content{
+    background-color: #253C4F;
+    height: 80px;
+}
+
+.background-content img{
+    height: 80px;
+}
+
+.menu{
+    list-style: none;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid #C0C0C0;
+    font-size: 20px;
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+.menu li{
+    display: inline;
+}
+
+.menu a{
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    text-decoration: none;
+    color: #000000;
+}
+
+.body-content{
+    background-color: #E7E7EF;
+    padding-top: 40px;
+    margin-bottom: 0;
+    height: 100%;
+}
+
+.body-content .title-content{
+    font-size: 21px;
+    font-family: 'Noto Serif KR', serif;
+}
+
+.body-content .semi-title{
+    padding-top: 5px;
+    font-size: 16px;
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+.body-content .main-content{
+    padding-top: 80px;
+    font-family: 'Noto Serif KR', serif;
+}
+
+.body-content .wrap-content .main-content h4{
+    margin: 0;
+}
+
+.wrap-content{
+    width: 1300px;
+    margin: auto;
+}
+
+.indented{
+    padding-left: 2em;
+}
+
+.main-content .done{
+    width: 650px;
+    float: left;
+}
+
+.main-content .to-do{
+    width: 650px;
+    float: left;
+}

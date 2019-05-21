@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!--link rel="stylesheet" type="text/css" href="../static/reset.css"-->
+        <link rel="stylesheet" type="text/css" href="../static/main_style.css">
+        <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Noto+Serif+KR&display=swap&subset=korean" rel="stylesheet">
+        <title>션쿠의 개인 블로그</title>
+    </head>
+    <body>
+        <div class="background-content">
+            <div class="logo">
+                <a href="homepage">
+                    {% load staticfiles %}
+                    <img src="{% static "logo.png" %}">
+                </a>
+            </div>
+        </div>
+        <div class="menu">
+            <li><a href="">일상</a></li>
+            <li><a href="">리그오브레전드</a></li>
+            <li><a href="">Deep-Learning</a></li>
+            <li><a href="">WEB</a></li>
+            <li><a href="">JAVA</a></li>
+            <li><a href="">Window Issues</a></li>
+            <li><a href="">개인</a></li>
+            <li><a href="develop_log">사이트 개발로그</a></li>
+        </div>
+        <div class="body-content">
+            <div class="wrap-content">
+                <div class="title-content">
+                    <h1>션쿠의 블로그에 오신 것을 환영합니다! 현재 사이트 공사중입니다...</h1>
+                </div>
+                <div class="semi-title">
+                VERSION : {{ version }}v 2019-05-22 AM 5:11 updated
+                </div>
+                <div class="main-content">
+                    개인적으로 프로그래밍 공부한 것들이나 공부하면서 얻은 팁들 등을 정리하기 위해 만든 페이지입니다.<br>
+                    이와 별개로, 일상적인 글들이나 게임 관련 글들도 게시할 예정입니다.<br>
+                    <br><br>
+                    사이트 개발은 8월 중순 내로 완료될 예정입니다.
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
