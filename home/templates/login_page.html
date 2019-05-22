@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!--link rel="stylesheet" type="text/css" href="../static/reset.css"-->
+        <link rel="stylesheet" type="text/css" href="../static/main_style.css">
+        <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Noto+Serif+KR&display=swap&subset=korean" rel="stylesheet">
+        <title>션쿠의 개인 블로그</title>
+    </head>
+    <body>
+        <div class="background-content">
+            <div class="logo">
+                <a href="homepage">
+                    {% load staticfiles %}
+                    <img src="{% static "logo.png" %}">
+                </a>
+            </div>
+            <div class="vertical-center">
+                <div class="wrapper">
+                    <li><a href="login">로그인</a></li>
+                </div>
+            </div>
+        </div>
+        <div class="menu">
+            <li><a href="">일상</a></li>
+            <li><a href="">리그오브레전드</a></li>
+            <li><a href="">Deep-Learning</a></li>
+            <li><a href="">WEB</a></li>
+            <li><a href="">JAVA</a></li>
+            <li><a href="">Window Issues</a></li>
+            <li><a href="">개인</a></li>
+            <li><a href="develop_log">사이트 개발로그</a></li>
+        </div>
+        <div class="body-content">
+            <div class="wrap-content">
+                <div class="title-content">
+                    <h1>블로그 주인만 로그인할 수 있습니다.</h1>
+                </div>
+                <div class="login-parent">
+                    <div class="login-content-wrapper">
+                        <div class="login-text">
+                            <h3>계정 로그인</h3>
+                        </div>
+                        <div class="text-container">
+                            <div class="ID-text">
+
+                            </div>
+                            <div class="PW-text">
+
+                            </div>
+                        </div>
+                        <div class="textfield">
+                            <div class="ID-textfield">
+
+                            </div>
+                            <div class="PW-textfield">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
