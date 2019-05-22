@@ -212,7 +212,7 @@ html, body{
     font-size: 18px;
     width: 90px;
     height: 40px;
-    background-color: #16c5cc;
+    background-color: #d6d6d6;
     border: none;
     border-radius: 4px;
     font-family: 'Noto Sans KR', sans-serif;
@@ -220,7 +220,7 @@ html, body{
 }
 
 .login-parent .button-lists button:active{
-    background-color: #0f8c91;
+    background-color: #a5a5a5;
 }
 
 .login-parent .button-lists input[type=submit]{
@@ -228,7 +228,7 @@ html, body{
     font-size: 18px;
     width: 90px;
     height: 40px;
-    background-color: #00a2e8;
+    background-color: #d6d6d6;
     border: none;
     border-radius: 4px;
     font-family: 'Noto Sans KR', sans-serif;
@@ -236,5 +236,5 @@ html, body{
 }
 
 .login-parent .button-lists input[type=submit]:active{
-    background-color: #0078ad;
+    background-color: #a5a5a5;
 }
