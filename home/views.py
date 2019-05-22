@@ -19,3 +19,7 @@ def get_develop_log(request):
 
 def get_login_page(request):
     return render(request, 'login_page.html', context)
+
+
+def get_signup_page(request):
+    return render(request, 'signup.html', context)

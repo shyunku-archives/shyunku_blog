@@ -31,7 +31,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
 ]
 
-SITE_VER = '0.1.4'
+SITE_VER = '0.1.6'
 
 # Application definition
 
