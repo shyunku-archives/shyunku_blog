@@ -31,7 +31,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
 ]
 
-SITE_VER = '0.1.2'
+SITE_VER = '0.1.4'
 
 # Application definition
 
@@ -124,5 +124,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+ROOT_DIR = os.path.dirname(BASE_DIR)
+
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'home/static/')
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
+
+STATIC_ROOT = os.path.join(ROOT_DIR, '.static_root')

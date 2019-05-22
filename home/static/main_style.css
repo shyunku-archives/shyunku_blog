@@ -1,4 +1,4 @@
-body, h1, h2, h3, h4{
+body, h1, h2, h4{
     margin: 0 !important;
     padding: 0 !important;
 }
@@ -10,10 +10,40 @@ html, body{
 .background-content{
     background-color: #253C4F;
     height: 80px;
+    font-family: 'Do Hyeon', sans-serif;
+    display: flex;
 }
 
 .background-content img{
     height: 80px;
+}
+
+.background-content .logo{
+    background-color: yellow;
+    float: left;
+}
+
+.background-content .vertical-center{
+    top: 50%;
+    /*background-color: cyan;*/
+    width: 100%;
+    padding: 30px;
+}
+
+.background-content .vertical-center .wrapper{
+    text-align: right;
+}
+
+.background-content .vertical-center li{
+    list-style: none;
+}
+
+.background-content .vertical-center a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    /*background-color: rebeccapurple;*/
 }
 
 .menu{
@@ -85,4 +115,44 @@ html, body{
 .main-content .to-do{
     width: 650px;
     float: left;
+}
+
+
+.body-content .wrap-content .login-parent{
+    margin-top: 100px;
+    text-align: center;
+    font-family: 'Noto Serif KR', serif;
+}
+
+.body-content .wrap-content .login-parent .login-content-wrapper{
+    display: inline-block;
+    width: 900px;
+    height: 450px;
+    border: black solid 1px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px #8080A0;
+    text-align: center;
+    padding: 3%;
+    background-color: white;
+}
+
+.login-content-wrapper .text-container{
+    float: left;
+    background-color: yellow;
+    width: 30%;
+    height: 55%;
+    margin-left: 70px;
+    margin-top: 40px;
+}
+
+.login-content-wrapper .textfield{
+    float: left;
+    background-color: blue;
+    width: 55%;
+    height: 55%;
+    margin-top: 40px;
+}
+
+.login-content-wrapper .login-text{
+    font-size: 30px;
 }

@@ -15,3 +15,7 @@ def index(request):
 
 def get_develop_log(request):
     return render(request, 'development_log.html', context)
+
+
+def get_login_page(request):
+    return render(request, 'login_page.html', context)
