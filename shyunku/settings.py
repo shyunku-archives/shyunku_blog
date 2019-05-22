@@ -25,7 +25,11 @@ SECRET_KEY = 'x_bp^)367cc*j)qwdj39&!du=wmo%n52!5n_m)vrb9c*^ru0)x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://whdudgns412.pythonanywhere.com/']
+ALLOWED_HOSTS = [
+    'http://whdudgns412.pythonanywhere.com/',
+    'localhost',
+    '127.0.0.1',
+]
 
 SITE_VER = '0.1.2'
 
