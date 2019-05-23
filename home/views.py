@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.conf import settings
-
+from home.models import User_Info
 # Create your views here.
 
 context = {
-    'version': settings.SITE_VER
+    'version': settings.SITE_VER,
+    'css_version': settings.CSS_VER,
 }
 
 
@@ -18,8 +19,28 @@ def get_develop_log(request):
 
 
 def get_login_page(request):
-    return render(request, 'login_page.html', context)
+    User_Infos = User_Info.objects.all()
+    login_context = {
+        'user_information': User_Infos,
+        'css_version': settings.CSS_VER,
+    }
+    return render(request, 'login_page.html', login_context)
 
 
 def get_signup_page(request):
     return render(request, 'signup.html', context)
+
+
+def post_user_info(request):
+    obj = User_Info(
+        user_id=request.POST.get('user-id'),
+        user_nickname=request.POST.get('user-nickname'),
+        user_pw=request.POST.get('user-pw')
+        )
+    obj.save()
+    return render(request, 'login_page.html', context)
+
+
+def post_user_login(request):
+
+    return render(request, 'homepage.html', context)

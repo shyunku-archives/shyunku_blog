@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="../static/main_style.css?ver=2">
+        <link rel="stylesheet" type="text/css" href="../static/main_style.css?ver={{ css_version }}">
         <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Noto+Serif+KR|Noto+Sans+KR&display=swap&subset=korean" rel="stylesheet">
         <title>션쿠의 개인 블로그</title>
     </head>
@@ -34,29 +34,49 @@
         <!-- 위까지 공통 부분 -->
         <div class="body-content">
             <div class="wrap-content">
-                <div class="title-content">
-                    <h1>블로그 주인은 관리자로 로그인됩니다.</h1>
-                </div>
                 <div class="login-parent">
                     <div class="login-content-wrapper">
                         <div class="login-text">
                             <h3>계정 로그인</h3>
                         </div>
-                        <div class="textfield">
-                            <div class="ID-textfield">
-                                <input type="text" name="user_id" size="45" placeholder="아이디" autocomplete="off" maxlength="100" spellcheck="false">
+                        <form action="authen" method="post" onsubmit="return check_information();">
+                            {% csrf_token %}
+                            <div class="textfield">
+                                <div class="ID-textfield">
+                                    <input type="text" id="user_id" size="45" placeholder="아이디" autocomplete="off" maxlength="100" spellcheck="false">
+                                </div>
+                                <div class="PW-textfield">
+                                    <input type="password" id="user_pw" size="45" placeholder="비밀번호" autocomplete="off" maxlength="100" spellcheck="false">
+                                </div>
                             </div>
-                            <div class="PW-textfield">
-                                <input type="password" name="user_pw" size="45" placeholder="비밀번호" autocomplete="off" maxlength="100" spellcheck="false">
+                            <div class="button-lists">
+                                <div class="splitter">
+                                    <input class="chk_remember" type="checkbox"> &nbsp;정보 기억하기
+                                </div>
+                                <input id="login_confirm_btn" type="submit" value="로그인">
+                                <button id="signup_btn" onclick="location.href='signup'" type="button">회원가입</button>
                             </div>
-                        </div>
-                        <div class="button-lists">
-                            <div class="splitter">
-                                <input class="chk_remember" type="checkbox"> &nbsp;정보 기억하기
-                            </div>
-                            <input id="login_confirm_btn" type="submit" value="로그인">
-                            <button id="signup_btn" onclick="location.href='signup'" type="button">회원가입</button>
-                        </div>
+                        </form>
+                        <script>
+                            function check_information() {
+                                let typed_id = document.getElementById('user_id').value;
+                                let typed_pw = document.getElementById('user_pw').value;
+                                {% for user in user_information %}
+                                    if(typed_id == "{{ user.user_id }}") {
+                                        if (typed_pw == "{{ user.user_pw }}") {
+                                            return true;
+                                        }
+                                        document.getElementById('user_pw').value="";
+                                        alert('비밀번호를 다시 확인해주세요.');
+                                        return false;
+                                    }
+                                {% endfor %}
+                                document.getElementById('user_id').value="";
+                                document.getElementById('user_pw').value="";
+                                alert('입력하신 정보가 올바르지 않습니다.');
+                                return false;
+                            }
+                        </script>
                     </div>
                 </div>
             </div>

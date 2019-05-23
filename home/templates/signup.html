@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="../static/main_style.css?ver=2">
+        <link rel="stylesheet" type="text/css" href="../static/main_style.css?ver={{ css_version }}">
         <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Noto+Serif+KR|Noto+Sans+KR&display=swap&subset=korean" rel="stylesheet">
         <title>션쿠의 개인 블로그</title>
     </head>
@@ -34,30 +34,90 @@
         <!-- 위까지 공통 부분 -->
         <div class="body-content">
             <div class="wrap-content">
-                <div class="title-content">
-                    <h1>블로그 주인은 관리자로 로그인됩니다.</h1>
-                </div>
-                <div class="login-parent">
-                    <div class="login-content-wrapper">
-                        <div class="login-text">
-                            <h3>계정 로그인</h3>
+                <div class="signup-parent">
+                    <div class="signup-content-wrapper">
+                        <div class="signup-text">
+                            <h3>계정 생성</h3>
                         </div>
-                        <div class="text-container">
-                            <div class="ID-text">
-
+                        <form action="save_data" method="post" onsubmit="return generate_account();">
+                            {%  csrf_token %}
+                            <div class="textfield">
+                                <div class="new-ID-textfield">
+                                    <input id="user_id" type="text" name="user-id" size="40" placeholder="아이디" autocomplete="off" maxlength="100" spellcheck="false">
+                                </div>
+                                 <div class="new-nickname-textfield">
+                                    <input id="user_nick" type="text" name="user-nickname" size="40" placeholder="닉네임" autocomplete="off" maxlength="100" spellcheck="false">
+                                </div>
+                                <div class="new-PW-textfield">
+                                    <input id="user_pw" type="password" name="user-pw" size="40" placeholder="비밀번호" autocomplete="off" maxlength="100" spellcheck="false">
+                                </div>
+                                <div class="new-PW-textfield">
+                                    <input id="user_pwr" type="password" name="user_pwr" size="40" placeholder="비밀번호 확인" autocomplete="off" maxlength="100" spellcheck="false">
+                                </div>
                             </div>
-                            <div class="PW-text">
-
+                            <div class="hintfield">
+                                <p style="text-align: left;" id="hint1">영문 포함 4자 이상 15자 이하</p>
+                                <p style="text-align: left;" id="hint2">한글/영문/숫자 2자 이상 20자 이하</p>
+                                <p style="text-align: left;" id="hint3">영문 포함 6자 이상 15자 이하</p>
+                                <p style="text-align: left;" id="hint4">비밀번호와 일치해야함</p>
                             </div>
-                        </div>
-                        <div class="textfield">
-                            <div class="ID-textfield">
-
+                            <div class="button-field">
+                                <button id="generate_btn" type="submit" name="generate">생성</button>
                             </div>
-                            <div class="PW-textfield">
+                        </form>
+                        <script type="text/javascript">
+                            function is_alphabet(letter){
+                                if(letter>='A'&&letter<='Z')return true;
+                                if(letter>='a'&&letter<='z')return true;
+                                return false;
+                            }
+                            function is_including_alphabet(charset){
+                                for(let i=0;i<charset.length;i++) {
+                                    if (is_alphabet(charset.charAt(i))) return true;
+                                }
+                                return false;
+                            }
+                            function generate_account(){
+                                //ID 중복 검사
 
-                            </div>
-                        </div>
+                                let user_id_len = document.getElementById('user_id').value.length;
+                                let user_nk_len = document.getElementById('user_nick').value.length;
+                                let user_pw_len = document.getElementById('user_pw').value.length;
+                                let user_id_str = document.getElementById('user_id').value;
+                                let user_nk_str = document.getElementById('user_nick').value
+                                let user_pw_str = document.getElementById('user_pw').value;
+                                let user_pwr_str = document.getElementById('user_pwr').value;
+
+                                let is_passed = true;
+
+                                document.getElementById('hint1').style.color = "#AAAAAA";
+                                document.getElementById('hint2').style.color = "#AAAAAA";
+                                document.getElementById('hint3').style.color = "#AAAAAA";
+                                document.getElementById('hint4').style.color = "#AAAAAA";
+
+                                //ID check
+                                if(!is_including_alphabet(user_id_str) || (user_id_len<4||user_id_len>15)){
+                                    document.getElementById('hint1').style.color = "red";
+                                    is_passed = false;
+                                }
+                                if(user_nk_len<2||user_nk_len>20){
+                                    document.getElementById('hint2').style.color = "red";
+                                    is_passed = false;
+                                }
+                                if(!is_including_alphabet(user_pw_str) || (user_pw_len<6||user_pw_len>15)){
+                                    document.getElementById('hint3').style.color = "red";
+                                    is_passed = false;
+                                }
+                                if(user_pw_str.localeCompare(user_pwr_str)){
+                                    document.getElementById('hint4').style.color = "red";
+                                    is_passed = false;
+                                }
+
+                                if(!is_passed) return false;
+                                alert('해당 정보로 로그인하시기 바랍니다.');
+                                return true;
+                            }
+                        </script>
                     </div>
                 </div>
             </div>
