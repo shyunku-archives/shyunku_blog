@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../../static/main_style.css?ver={{ css_version }}">
+        <link rel="stylesheet" type="text/css" href="../../static/document_write.css?ver={{ css_version }}">
+        <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Noto+Serif+KR|Noto+Sans+KR&display=swap&subset=korean" rel="stylesheet">
+        <title>션쿠의 개인 블로그</title>
+    </head>
+    <body>
+        <div class="background-content">
+            <div class="logo">
+                <a href="../homepage">
+                    {% load staticfiles %}
+                    <img src="{% static "logo.png" %}">
+                </a>
+            </div>
+            <div class="vertical-center">
+                <div class="wrapper">
+                    {% if request.session.username == None %}
+                        <li><a href="../signup">회원가입</a></li>
+                        <li><a href="../login">로그인</a></li>
+                    {% else %}
+                        {% if request.session.userid ==  superuser_id %}
+                            블로그 관리자 님, 환영합니다!
+                        {% else %}
+                            {{ request.session.username }} 님, 환영합니다!
+                        {% endif %}
+                        <li><a href="../logout">로그아웃</a></li>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="menu">
+            <li><a href="../free/list">자유게시판</a></li>
+            <li><a href="../routine/list">일상</a></li>
+            <li><a href="../lol/list">리그오브레전드</a></li>
+            <li><a href="../deep_learning/list">Deep-Learning</a></li>
+            <li><a href="../web/list">WEB</a></li>
+            <li><a href="../java/list">JAVA</a></li>
+            <li><a href="../window_issue/list">Window Issues</a></li>
+            <li><a href="../individual/list">개인</a></li>
+            <li><a href="../develop_log">사이트 개발로그</a></li>
+        </div>
+        <!-- 위까지 공통 부분 -->
+        <div class="body-content">
+            <div class="wrap-content">
+                <div class="content-field-wrapper">
+                    <div class="box-title">WEB 게시판에 글쓰기</div>
+                    <hr style="width: 90%; height: 2px; border:none; background-color: black">
+                    <form action="posting" method="post">
+                        {% csrf_token %}
+                        <div class="box-content">
+                            <div class="document-title">
+                                <input id="doc_title" type="text" name="doc-title" size="55" placeholder="제목을 입력하세요." autocomplete="off" maxlength="100" spellcheck="false">
+                            </div>
+                            <div class="textarea-wrapper">
+                                {{ form|safe }}
+                            </div>
+                            <div class="button-wrapper">
+                                <input id="login_confirm_btn" type="submit" value="포스팅">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,312 @@
+body, h1, h2, h4{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html, body{
+    height: 100%;
+}
+
+.background-content{
+    background-color: #253C4F;
+    height: 80px;
+    font-family: 'Do Hyeon', sans-serif;
+    display: flex;
+}
+
+.background-content img{
+    height: 80px;
+}
+
+.background-content .logo{
+    background-color: yellow;
+    float: left;
+}
+
+.background-content .vertical-center{
+    top: 50%;
+    /*background-color: cyan;*/
+    width: 100%;
+    padding: 30px;
+}
+
+.background-content .vertical-center{
+    text-align: center;
+
+}
+
+.vertical-center .wrapper{
+    width: 100%;
+    color: white;
+    text-align: right;
+    font-size: 20px;
+    margin-top: -4px;
+}
+
+.background-content .vertical-center li{
+    list-style: none;
+    float: right;
+    margin-top: 4px;
+}
+
+.background-content .vertical-center a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 15px;
+}
+
+.menu{
+    list-style: none;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid #C0C0C0;
+    font-size: 20px;
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+.menu li{
+    display: inline;
+}
+
+.menu a{
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    text-decoration: none;
+    color: #000000;
+}
+
+/* -------------------- Body Content -------------------- */
+
+.body-content{
+    background-color: #E7E7EF;
+    padding-top: 40px;
+    margin-bottom: 0;
+    min-height: 100%;
+}
+
+.body-content .title-content{
+    font-size: 21px;
+    font-family: 'Noto Serif KR', serif;
+}
+
+.body-content .semi-title{
+    padding-top: 5px;
+    font-size: 16px;
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+.body-content .main-content{
+    padding-top: 80px;
+    font-family: 'Noto Serif KR', serif;
+}
+
+.body-content .wrap-content .main-content h4{
+    margin: 0;
+}
+
+.wrap-content{
+    width: 1300px;
+    margin: auto;
+}
+
+.indented{
+    padding-left: 2em;
+}
+
+.main-content .done{
+    width: 650px;
+    float: left;
+}
+
+.main-content .to-do{
+    width: 650px;
+    float: left;
+}
+
+
+.body-content .wrap-content .login-parent{
+    margin-top: 100px;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.body-content .wrap-content .signup-parent{
+    margin-top: 100px;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.body-content .wrap-content .login-parent .login-content-wrapper{
+    display: inline-block;
+    width: 700px;
+    height: 420px;
+    border: black solid 1px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px #8080A0;
+    background-color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.body-content .wrap-content .signup-parent .signup-content-wrapper{
+    display: inline-block;
+    width: 800px;
+    height: 550px;
+    border: black solid 1px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px #8080A0;
+    background-color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.login-content-wrapper .textfield{
+    float: left;
+    margin-left: 11%;
+    width: auto;
+    height: auto;
+    font-size: 25px;
+    margin-top: -30px;
+}
+
+.login-content-wrapper .login-text{
+    font-size: 30px;
+}
+
+.signup-content-wrapper .signup-text{
+    font-size: 30px;
+}
+
+.login-content-wrapper .textfield .ID-textfield{
+    margin-top: 53px;
+    margin-left: 10px;
+}
+
+.login-content-wrapper .textfield .PW-textfield{
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.login-parent .textfield input{
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    height: 30px;
+    font-size: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    padding-left: 4px;
+    border-radius: 5px;
+}
+
+.signup-parent .textfield{
+    float: left;
+    margin-left: 20px;
+    width: 60%;
+}
+
+.signup-parent .hintfield{
+    float: left;
+    width: 30%;
+    margin-left: 40px;
+    margin-top: 25px;
+}
+
+.signup-parent .hintfield p{
+    text-align: left;
+    margin-left: 0px;
+    font-size: 13px;
+    margin-bottom: 46px;
+    color: #AAAAAA;
+}
+
+.signup-parent .textfield text{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.signup-parent .textfield input{
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    height: 30px;
+    font-size: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    padding-left: 4px;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-left: 35px;
+}
+
+.login-parent .button-lists{
+    height: 100px;
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: left;
+    padding-top: 170px;
+}
+
+.login-parent .button-lists .splitter{
+    width: 150px;
+    float: left;
+    margin-left: 90px;
+    margin-top: 5px;
+}
+
+.login-parent .button-lists input[type=checkbox]{
+    float: left;
+    transform: scale(1.3);
+    font-size: 15px;
+    margin-top: 7px;
+}
+
+.login-parent .button-lists button{
+    margin-left: 40px;
+    float: right;
+    font-size: 18px;
+    width: 90px;
+    height: 40px;
+    background-color: #d6d6d6;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-right: 20px;
+}
+
+.login-parent .button-lists button:active{
+    background-color: #a5a5a5;
+}
+
+.login-parent .button-lists input[type=submit]{
+    float: right;
+    font-size: 18px;
+    width: 90px;
+    height: 40px;
+    background-color: #d6d6d6;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-right: 85px;
+}
+
+.login-parent .button-lists input[type=submit]:active{
+    background-color: #a5a5a5;
+}
+
+
+.signup-content-wrapper .button-field button{
+    font-size: 18px;
+    width: 90px;
+    height: 40px;
+    background-color: #d6d6d6;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-top: 25px;
+}
+
+.signup-content-wrapper .button-field button:active{
+    background-color: #a5a5a5;
+}

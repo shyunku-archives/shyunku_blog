@@ -1,0 +1,61 @@
+.body-content .wrap-content{
+    height: 1000px;
+    background-color: yellow;
+    text-align: center;
+}
+
+.body-content .wrap-content .content-field-wrapper{
+    width: 85%;
+    height: 90%;
+
+    display: inline-block;
+
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px #8080A0;
+
+    text-align: center;
+}
+
+.content-field-wrapper .box-title{
+    margin-top: 20px;
+
+    font-family: 'Noto Serif KR', serif;
+    font-size: 21px;
+}
+
+.content-field-wrapper .box-content{
+    height: 600px;
+    width: 80%;
+
+    display: inline-block;
+
+    margin-top: 30px;
+}
+
+.content-field-wrapper .box-content input[type=text]{
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    height: 30px;
+    font-size: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    padding-left: 4px;
+    border-radius: 5px;
+
+    float: left;
+}
+
+.box-content .document-title{
+    height: 50px;
+}
+
+.box-content .textarea-wrapper{
+    height: 800px;
+    background-color: blue;
+}
+
+.box-content .textarea-wrapper textarea{
+    width: 90%;
+    height: 90%;
+}

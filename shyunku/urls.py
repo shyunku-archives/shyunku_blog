@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin-authentification-010004820004756/', admin.site.urls),
+    path('summernote/', include('django_summernote.urls')),
     path('', include('home.urls')),
 ]

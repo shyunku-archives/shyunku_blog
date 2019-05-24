@@ -31,10 +31,8 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
 ]
 
-SITE_VER = '0.2.3'
-CSS_VER = 27
 
-#LOGIN SESSION
+#USER-MADE
 
 LOGIN_REDIRECT_URL = "/"
 
@@ -52,6 +50,11 @@ USER_INFO_CONDITION = {
     'PW_MIN_LEN' : 6,
 }
 
+PROCESS_RATE = '42'
+SITE_VER = '0.3.0'
+CSS_VER = 110
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -62,6 +65,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -146,9 +150,13 @@ USE_TZ = True
 ROOT_DIR = os.path.dirname(BASE_DIR)
 
 STATIC_URL = '/static/'
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-    STATIC_DIR,
+    os.path.join(BASE_DIR, "home/static")
 ]
 
-STATIC_ROOT = os.path.join(ROOT_DIR, '.static_root')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+#SummerNote
+MEDIA_URL='/media/'
+SUMMERNOTE_CONFIG = {}
