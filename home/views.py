@@ -11,7 +11,14 @@ context = {
 
 
 def index(request):
-    return render(request, 'homepage.html', context)
+    num_visits = request.session.get('num_visits', 0)
+    request.session['num_visits'] = num_visits + 1
+    context2 = {
+        'version'       : settings.SITE_VER,
+        'css_version'   : settings.CSS_VER,
+        'visits'        : num_visits,
+    }
+    return render(request, 'homepage.html', context2)
 
 
 def get_develop_log(request):
@@ -38,9 +45,20 @@ def post_user_info(request):
         user_pw=request.POST.get('user-pw')
         )
     obj.save()
-    return render(request, 'login_page.html', context)
+    return get_login_page(request)
 
 
 def post_user_login(request):
+    for user in User_Info.objects.filter().all():
+        if user.user_id == request.POST.get('user-id'):
+            request.session['username'] = user.user_nickname
+            break
+    return index(request)
 
-    return render(request, 'homepage.html', context)
+
+def user_logout(request):
+    try:
+        del request.session['username']
+    except:
+        pass
+    return index(request)

@@ -16,8 +16,13 @@
             </div>
             <div class="vertical-center">
                 <div class="wrapper">
-                    <li><a href="signup">회원가입</a></li>
-                    <li><a href="login">로그인</a></li>
+                    {% if request.session.username == None %}
+                        <li><a href="signup">회원가입</a></li>
+                        <li><a href="login">로그인</a></li>
+                    {% else %}
+                        {{ request.session.username }} 님, 환영합니다!
+                        <li><a href="logout">로그아웃</a></li>
+                    {% endif %}
                 </div>
             </div>
         </div>

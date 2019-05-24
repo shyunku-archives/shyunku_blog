@@ -16,8 +16,13 @@
             </div>
             <div class="vertical-center">
                 <div class="wrapper">
-                    <li><a href="signup">회원가입</a></li>
-                    <li><a href="login">로그인</a></li>
+                    {% if request.session.username == None %}
+                        <li><a href="signup">회원가입</a></li>
+                        <li><a href="login">로그인</a></li>
+                    {% else %}
+                        {{ request.session.username }} 님, 환영합니다!
+                        <li><a href="logout">로그아웃</a></li>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -43,10 +48,10 @@
                             {% csrf_token %}
                             <div class="textfield">
                                 <div class="ID-textfield">
-                                    <input type="text" id="user_id" size="45" placeholder="아이디" autocomplete="off" maxlength="100" spellcheck="false">
+                                    <input type="text" name="user-id" id="user_id" size="45" placeholder="아이디" autocomplete="off" maxlength="100" spellcheck="false">
                                 </div>
                                 <div class="PW-textfield">
-                                    <input type="password" id="user_pw" size="45" placeholder="비밀번호" autocomplete="off" maxlength="100" spellcheck="false">
+                                    <input type="password" name="user-pw" id="user_pw" size="45" placeholder="비밀번호" autocomplete="off" maxlength="100" spellcheck="false">
                                 </div>
                             </div>
                             <div class="button-lists">
