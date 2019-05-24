@@ -10,4 +10,5 @@ urlpatterns = [
     path('save_data', views.post_user_info),
     path('authen', views.post_user_login),
     path('logout', views.user_logout),
+    path('web/list', views.get_web_list),
 ]

@@ -20,7 +20,11 @@
                         <li><a href="signup">회원가입</a></li>
                         <li><a href="login">로그인</a></li>
                     {% else %}
-                        {{ request.session.username }} 님, 환영합니다!
+                        {% if request.session.userid ==  superuser_id %}
+                            블로그 관리자 님, 환영합니다!
+                        {% else %}
+                            {{ request.session.username }} 님, 환영합니다!
+                        {% endif %}
                         <li><a href="logout">로그아웃</a></li>
                     {% endif %}
                 </div>
@@ -30,7 +34,7 @@
             <li><a href="">일상</a></li>
             <li><a href="">리그오브레전드</a></li>
             <li><a href="">Deep-Learning</a></li>
-            <li><a href="">WEB</a></li>
+            <li><a href="web/list">WEB</a></li>
             <li><a href="">JAVA</a></li>
             <li><a href="">Window Issues</a></li>
             <li><a href="">개인</a></li>
@@ -43,12 +47,15 @@
                     <h1>션쿠의 블로그에 오신 것을 환영합니다! 현재 사이트 공사중입니다...</h1>
                 </div>
                 <div class="semi-title">
-                VERSION : {{ version }}v 2019-05-22 AM 5:11 updated<br>page viewed : {{ visits }}<br>
-                    logined : {{ request.session.username }}
+                VERSION : {{ version }}v 2019-05-22 AM 5:11 updated<br>page viewed : {{ variables.visits }}<br>
+                    Log-In ID : {{ request.session.userid }}<br>Process : 25%
                 </div>
                 <div class="main-content">
-                    개인적으로 프로그래밍 공부한 것들이나 공부하면서 얻은 팁들 등을 정리하기 위해 만든 페이지입니다.<br>
+                    개인적으로 프로그래밍 공부한 것들이나 공부하면서 얻은 팁들 등을 정리하기 위해 만든 블로그입니다.<br>
                     이와 별개로, 일상적인 글들이나 게임 관련 글들도 게시할 예정입니다.<br>
+                    <br><br>
+                    제 블로그에는 특정 페이지에서만 글을 쓰실 수 있으며, 글이나 댓글을 남기시려면 회원가입을 하셔야합니다.<br>
+                    개발 완료까지는 간헐적으로 회원정보가 삭제될 수도 있습니다.<br>
                     <br><br>
                     사이트 개발은 8월 중순 내로 완료될 예정입니다.
                 </div>

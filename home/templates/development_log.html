@@ -20,7 +20,11 @@
                         <li><a href="signup">회원가입</a></li>
                         <li><a href="login">로그인</a></li>
                     {% else %}
-                        {{ request.session.username }} 님, 환영합니다!
+                        {% if request.session.userid ==  superuser_id %}
+                            블로그 관리자 님, 환영합니다!
+                        {% else %}
+                            {{ request.session.username }} 님, 환영합니다!
+                        {% endif %}
                         <li><a href="logout">로그아웃</a></li>
                     {% endif %}
                 </div>
@@ -30,7 +34,7 @@
             <li><a href="">일상</a></li>
             <li><a href="">리그오브레전드</a></li>
             <li><a href="">Deep-Learning</a></li>
-            <li><a href="">WEB</a></li>
+            <li><a href="web/list">WEB</a></li>
             <li><a href="">JAVA</a></li>
             <li><a href="">Window Issues</a></li>
             <li><a href="">개인</a></li>
@@ -43,10 +47,22 @@
                     <h1>션쿠의 블로그 개발 현황 및 로그</h1>
                 </div>
                 <div class="semi-title">
-                VERSION : {{ version }}v 2019-05-24 AM 10:56 updated
+                VERSION : {{ version }}v 2019-05-24 PM 07:14 updated
                 </div>
                 <div class="main-content">
                     <div class="done">
+                        <br><h4>version 0.2.3</h4><br>
+                        <div class="indented">
+                            - 유저 정보 조건 관리 최적화<br>
+                            - 게시글 리스트 페이지 템플릿 85% 구현<br>
+                        <br>
+                        </div>
+                        <br><h4>version 0.2.2</h4><br>
+                        <div class="indented">
+                            - 페이지 조회수 측정 구현<br>
+                            - 블로그 superuser(관리자) 인식 구현<br>
+                        <br>
+                        </div>
                         <br><h4>version 0.2.1</h4><br>
                         <div class="indented">
                             - 로그인/로그아웃 세션 구현<br>
@@ -107,8 +123,10 @@
                         <br><h4>To-Do LIST</h4><br>
                         <div class="indented">
                             - pythonanywhere 서버의 static file 로드 안되는 문제 해결<br>
-                            - 로그인 탭의 정보 기억하기 구현<br>
+                            - POST request 처리 후 URL 문제 해결<br>
+                            - 로그인 탭의 정보 기억하기 삭제<br>
                             - ID 중복 확인 구현<br>
+                            - 조회수 실시간으로 안되는 오류 수정<br>
                         <br>
                         </div>
                     </div>

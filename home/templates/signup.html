@@ -20,7 +20,11 @@
                         <li><a href="signup">회원가입</a></li>
                         <li><a href="login">로그인</a></li>
                     {% else %}
-                        {{ request.session.username }} 님, 환영합니다!
+                        {% if request.session.userid ==  superuser_id %}
+                            블로그 관리자 님, 환영합니다!
+                        {% else %}
+                            {{ request.session.username }} 님, 환영합니다!
+                        {% endif %}
                         <li><a href="logout">로그아웃</a></li>
                     {% endif %}
                 </div>
@@ -30,7 +34,7 @@
             <li><a href="">일상</a></li>
             <li><a href="">리그오브레전드</a></li>
             <li><a href="">Deep-Learning</a></li>
-            <li><a href="">WEB</a></li>
+            <li><a href="web/list">WEB</a></li>
             <li><a href="">JAVA</a></li>
             <li><a href="">Window Issues</a></li>
             <li><a href="">개인</a></li>
@@ -61,9 +65,9 @@
                                 </div>
                             </div>
                             <div class="hintfield">
-                                <p style="text-align: left;" id="hint1">영문 포함 4자 이상 15자 이하</p>
-                                <p style="text-align: left;" id="hint2">한글/영문/숫자 2자 이상 20자 이하</p>
-                                <p style="text-align: left;" id="hint3">영문 포함 6자 이상 15자 이하</p>
+                                <p style="text-align: left;" id="hint1">영문 포함 {{ user_info_condition.ID_MIN_LEN }}자 이상 {{ user_info_condition.ID_MAX_LEN }}자 이하</p>
+                                <p style="text-align: left;" id="hint2">한글/영문/숫자 {{ user_info_condition.NICK_MIN_LEN }}자 이상 {{ user_info_condition.NICK_MAX_LEN }}자 이하</p>
+                                <p style="text-align: left;" id="hint3">영문 포함 {{ user_info_condition.PW_MIN_LEN }}자 이상 {{ user_info_condition.PW_MAX_LEN }}자 이하</p>
                                 <p style="text-align: left;" id="hint4">비밀번호와 일치해야함</p>
                             </div>
                             <div class="button-field">
@@ -101,15 +105,15 @@
                                 document.getElementById('hint4').style.color = "#AAAAAA";
 
                                 //ID check
-                                if(!is_including_alphabet(user_id_str) || (user_id_len<4||user_id_len>15)){
+                                if(!is_including_alphabet(user_id_str) || (user_id_len<{{ user_info_condition.ID_MIN_LEN }}||user_id_len>{{ user_info_condition.ID_MAX_LEN }})){
                                     document.getElementById('hint1').style.color = "red";
                                     is_passed = false;
                                 }
-                                if(user_nk_len<2||user_nk_len>20){
+                                if(user_nk_len<{{ user_info_condition.NICK_MIN_LEN }}||user_nk_len>{{ user_info_condition.NICK_MAX_LEN }}){
                                     document.getElementById('hint2').style.color = "red";
                                     is_passed = false;
                                 }
-                                if(!is_including_alphabet(user_pw_str) || (user_pw_len<6||user_pw_len>15)){
+                                if(!is_including_alphabet(user_pw_str) || (user_pw_len<{{ user_info_condition.PW_MIN_LEN }}||user_pw_len>{{ user_info_condition.PW_MAX_LEN }})){
                                     document.getElementById('hint3').style.color = "red";
                                     is_passed = false;
                                 }

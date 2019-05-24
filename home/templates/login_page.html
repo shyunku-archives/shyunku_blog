@@ -20,7 +20,11 @@
                         <li><a href="signup">회원가입</a></li>
                         <li><a href="login">로그인</a></li>
                     {% else %}
-                        {{ request.session.username }} 님, 환영합니다!
+                        {% if request.session.userid ==  superuser_id %}
+                            블로그 관리자 님, 환영합니다!
+                        {% else %}
+                            {{ request.session.username }} 님, 환영합니다!
+                        {% endif %}
                         <li><a href="logout">로그아웃</a></li>
                     {% endif %}
                 </div>
@@ -30,7 +34,7 @@
             <li><a href="">일상</a></li>
             <li><a href="">리그오브레전드</a></li>
             <li><a href="">Deep-Learning</a></li>
-            <li><a href="">WEB</a></li>
+            <li><a href="web/list">WEB</a></li>
             <li><a href="">JAVA</a></li>
             <li><a href="">Window Issues</a></li>
             <li><a href="">개인</a></li>

@@ -1,0 +1,218 @@
+.body-content .wrap-content{
+    height: 1000px;
+}
+
+.body-content .wrap-content li{
+    list-style: none;
+}
+
+.body-content .wrap-content .small-window-wrapper{
+    float: left;
+    width: 25%;
+    height: 500px;
+    /*background-color: yellow;*/
+    text-align: center;
+}
+
+.body-content .wrap-content .big-window-wrapper{
+    float: left;
+    width: 75%;
+    height: 900px;
+    /*background-color: purple;*/
+    text-align: center;
+}
+
+.body-content .small-window-wrapper .status-box{
+    display: inline-block;
+    width: 85%;
+    height: 450px;
+
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px #8080A0;
+}
+
+.body-content .small-window-wrapper .status-box .page-name{
+    margin-top: 20px;
+
+    font-family: 'Noto Serif KR', serif;
+    font-size: 21px;
+}
+
+.body-content .small-window-wrapper .status-box .detail-wrapper{
+    margin-top: 8%;
+    height: 70%;
+
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+}
+
+.body-content .small-window-wrapper .status-box .detail-name{
+    float: left;
+    width: 45%;
+    height: 100%;
+    /*background-color: cyan;*/
+
+    margin-left: 5%;
+
+    text-align: left;
+}
+
+.body-content .small-window-wrapper .status-box .detail-name li{
+    margin-top: 10px;
+    padding-left: 17px;
+}
+
+.body-content .small-window-wrapper .status-box .detail-value{
+    float: right;
+    width: 45%;
+    height: 100%;
+    /*background-color: red;*/
+
+    margin-right: 5%;
+
+    text-align: right;
+}
+
+.body-content .small-window-wrapper .status-box .detail-value li{
+    margin-top: 10px;
+    padding-right: 17px;
+}
+
+.body-content .big-window-wrapper .list-box{
+    display: inline-block;
+    width: 98%;
+    height: 870px;
+
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px #8080A0;
+
+    text-align: center;
+    position: relative;
+}
+
+.body-content .big-window-wrapper .list-box .list-name{
+    margin-top: 20px;
+
+    font-family: 'Noto Serif KR', serif;
+    font-size: 21px;
+}
+
+.body-content .big-window-wrapper .list-box .list-classify{
+    height: 35px;
+    width: 90%;
+
+    font-family: 'Noto Serif KR', serif;
+
+    display: inline-block;
+
+    margin-top: 8px;
+    margin-bottom: -4px;
+}
+
+.body-content .big-window-wrapper .list-box .list-classify li{
+    display: inline;
+    float: left;
+}
+
+#doc_no{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+#doc_title{
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+#doc_writer{
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+#doc_time{
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+#doc_visit_cnt{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.body-content .big-window-wrapper .list-box .write-button-wrapper{
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    bottom: 45px;
+}
+
+.body-content .big-window-wrapper .list-box .list-wrapper{
+    height: 35px;
+    width: 90%;
+
+    font-family: 'Noto Serif KR', serif;
+
+    display: inline-block;
+}
+
+.body-content .big-window-wrapper .list-box .list-wrapper div{
+    display: inline;
+    float: left;
+
+    font-size: 15px;
+
+    margin-bottom: 10px;
+}
+
+.body-content .big-window-wrapper .list-box .write-button-wrapper button{
+    font-size: 18px;
+    width: 90px;
+    height: 40px;
+    background-color: #d6d6d6;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Noto Sans KR', sans-serif;
+
+    margin-left: 750px;
+}
+
+.body-content .big-window-wrapper .list-box .write-button-wrapper button:active{
+    background-color: #a5a5a5;
+}
+
+#index-list{
+    padding-left: 10.25px;
+    padding-right: 10.25px;
+    width: 80px;
+    text-align: center;
+}
+
+#title-list{
+    padding-left: 5.46px;
+    padding-right: 5.46px;
+    width: 320px;
+    text-align: center;
+}
+
+#writer-list{
+    padding-left: 8.19px;
+    padding-right: 8.19px;
+    width: 110px;
+    text-align: center;
+}
+
+#time-list{
+    padding-left: 5.915px;
+    padding-right: 5.915px;
+    width: 190px;
+    text-align: center;
+}
+
+#visit-count-list{
+    padding-left: 8.19px;
+    padding-right: 8.19px;
+    width: 80px;
+    text-align: center;
+}

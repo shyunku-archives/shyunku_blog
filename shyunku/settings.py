@@ -31,8 +31,8 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
 ]
 
-SITE_VER = '0.2.1'
-CSS_VER = 17
+SITE_VER = '0.2.3'
+CSS_VER = 27
 
 #LOGIN SESSION
 
@@ -40,6 +40,17 @@ LOGIN_REDIRECT_URL = "/"
 
 SESSION_COOKIE_AGE = 86400
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+SUPERUSER_ID = 'whdudgns412super'
+
+USER_INFO_CONDITION = {
+    'ID_MAX_LEN' : 20,
+    'ID_MIN_LEN' : 5,
+    'NICK_MAX_LEN' : 25,
+    'NICK_MIN_LEN' : 2,
+    'PW_MAX_LEN' : 15,
+    'PW_MIN_LEN' : 6,
+}
 
 # Application definition
 
