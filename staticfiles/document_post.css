@@ -1,0 +1,35 @@
+.content-field-wrapper {
+    height: 600px;
+}
+
+.content-field-wrapper .content-box{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px #8080A0;
+
+    width: 98%;
+    height: 90%;
+
+    text-align: center;
+}
+
+.content-box .post-title{
+    padding-top: 50px;
+    font-family: 'Noto Serif KR', serif;
+}
+
+.content-box .post-title h1{
+    font-size: 40px;
+}
+
+.post-content-wrapper{
+    text-align: center;
+    height: 100%;
+}
+
+.post-content-wrapper .post-content{
+    display: inline-block;
+    width: 90%;
+    height: 100%;
+    text-align: justify;
+}
