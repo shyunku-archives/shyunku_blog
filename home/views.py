@@ -27,6 +27,21 @@ def update_context():
     document_context = {
         'document_info': Documents_Info.objects.all(),
     }
+    datas = Variables.objects.all()
+    if len(datas) == 0:
+        obj = Variables(
+            visits= 0,
+            doc_index_recent= 0,
+            visits_free=0,
+            visits_rout=0,
+            visits_lol=0,
+            visits_dl=0,
+            visits_web=0,
+            visits_java=0,
+            visits_window=0,
+            visits_indiv=0
+        )
+        obj.save()
     context_default = {
         'version'            : settings.SITE_VER,
         'css_version'        : settings.CSS_VER,
