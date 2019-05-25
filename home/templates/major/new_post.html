@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../../static/main_style.css?ver={{ css_version }}">
+        <link rel="stylesheet" type="text/css" href="../../static/document_write.css?ver={{ css_version }}">
         <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Noto+Serif+KR|Noto+Sans+KR&display=swap&subset=korean" rel="stylesheet">
         <title>션쿠의 개인 블로그</title>
     </head>
@@ -45,25 +46,23 @@
         <!-- 위까지 공통 부분 -->
         <div class="body-content">
             <div class="wrap-content">
-                <div class="title-content">
-                    <h1>션쿠의 블로그에 오신 것을 환영합니다! 현재 사이트 공사중입니다...</h1>
-                </div>
-                <div class="semi-title">
-                VERSION : {{ version }}v 2019-05-25 PM 4:23 updated<br>page viewed : {{ variables.visits }}<br>
-                    Log-In ID : {{ request.session.userid }}<br>Process : {{ process_rate }}%
-                </div>
-                <div class="main-content">
-                    개인적으로 프로그래밍 공부한 것들이나 공부하면서 얻은 팁들 등을 정리하기 위해 만든 블로그입니다.<br>
-                    이와 별개로, 일상적인 글들이나 게임 관련 글들도 게시할 예정입니다.<br>
-                    <br><br>
-                    제 블로그에는 '자유게시판'에서만 게시글을 쓰실 수 있으며, 글이나 댓글을 남기시려면 회원가입을 하셔야합니다.<br>
-                    개발 완료까지는 간헐적으로 회원정보가 삭제될 수도 있습니다.<br>
-                    또한, 댓글은 모든 게시판의 게시글에 남길 수 있습니다.<br>
-                    <br><br>
-                    댓글이나 게시글은 임의로 관리자가 삭제할 수 있습니다.<br>
-                    <br><br>
-                    사이트 개발은 6월 중순 내로 완료될 예정입니다.<br>
-                    개발 완료 후 베타 테스트가 끝나고 알파 버전 배포할 때 모든 데이터가 초기화됩니다.
+                <div class="content-field-wrapper">
+                    <div class="box-title">{{ board_name }} 게시판에 글쓰기</div>
+                    <hr style="width: 90%; height: 2px; border:none; background-color: black">
+                    <form action="posting?board={{ classification }}" method="post">
+                        {% csrf_token %}
+                        <div class="box-content">
+                            <div class="document-title">
+                                <input id="doc_title" type="text" name="doc-title" size="55" placeholder="제목을 입력하세요." autocomplete="off" maxlength="100" spellcheck="false">
+                            </div>
+                            <div class="textarea-wrapper">
+                                {{ form|safe }}
+                            </div>
+                            <div class="button-wrapper">
+                                <input id="login_confirm_btn" type="submit" value="포스팅">
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

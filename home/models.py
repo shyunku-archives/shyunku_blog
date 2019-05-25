@@ -7,6 +7,7 @@ from django_summernote import fields as summer_fields
 class Post(models.Model):
     content = RichTextField()
 
+
 class User_Info(models.Model):
     user_id = models.CharField(max_length=20)
     user_nickname = models.CharField(max_length=25)
@@ -19,6 +20,14 @@ class User_Info(models.Model):
 class Variables(models.Model):
     visits = models.IntegerField(default=0)
     doc_index_recent = models.IntegerField(default=1)
+    visits_free = models.IntegerField(default=0)
+    visits_rout = models.IntegerField(default=0)
+    visits_lol = models.IntegerField(default=0)
+    visits_dl = models.IntegerField(default=0)
+    visits_web = models.IntegerField(default=0)
+    visits_java = models.IntegerField(default=0)
+    visits_window = models.IntegerField(default=0)
+    visits_indiv = models.IntegerField(default=0)
 
     def __str__(self):
         return "Variables"

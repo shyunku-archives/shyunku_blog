@@ -7,9 +7,10 @@
         <title>션쿠의 개인 블로그</title>
     </head>
     <body>
+        <!-- 아래까지 공통 부분 -->
         <div class="background-content">
             <div class="logo">
-                <a href="homepage">
+                <a href="../homepage">
                     {% load staticfiles %}
                     <img src="{% static "logo.png" %}">
                 </a>
@@ -17,29 +18,29 @@
             <div class="vertical-center">
                 <div class="wrapper">
                     {% if request.session.username == None %}
-                        <li><a href="signup">회원가입</a></li>
-                        <li><a href="login">로그인</a></li>
+                        <li><a href="../signup">회원가입</a></li>
+                        <li><a href="../login">로그인</a></li>
                     {% else %}
                         {% if request.session.userid ==  superuser_id %}
                             블로그 관리자 님, 환영합니다!
                         {% else %}
                             {{ request.session.username }} 님, 환영합니다!
                         {% endif %}
-                        <li><a href="logout">로그아웃</a></li>
+                        <li><a href="../logout">로그아웃</a></li>
                     {% endif %}
                 </div>
             </div>
         </div>
         <div class="menu">
-            <li><a href="../free/list">자유게시판</a></li>
-            <li><a href="">일상</a></li>
-            <li><a href="">리그오브레전드</a></li>
-            <li><a href="">Deep-Learning</a></li>
-            <li><a href="web/list">WEB</a></li>
-            <li><a href="">JAVA</a></li>
-            <li><a href="">Window Issues</a></li>
-            <li><a href="">개인</a></li>
-            <li><a href="develop_log">사이트 개발로그</a></li>
+            <li><a href="../board?name=free">자유게시판</a></li>
+            <li><a href="../board?name=routine">일상</a></li>
+            <li><a href="../board?name=league-of-legends">리그오브레전드</a></li>
+            <li><a href="../board?name=deep-learning">Deep-Learning</a></li>
+            <li><a href="../board?name=web">WEB</a></li>
+            <li><a href="../board?name=java">JAVA</a></li>
+            <li><a href="../board?name=window-issues">Window Issues</a></li>
+            <li><a href="../board?name=individual">개인</a></li>
+            <li><a href="../develop_log">사이트 개발로그</a></li>
         </div>
         <!-- 위까지 공통 부분 -->
         <div class="body-content">

@@ -50,9 +50,12 @@ USER_INFO_CONDITION = {
     'PW_MIN_LEN' : 6,
 }
 
-PROCESS_RATE = '42'
-SITE_VER = '0.3.0'
-CSS_VER = 110
+PROCESS_RATE = '59'
+SITE_VER = '0.4.0'
+CSS_VER = 120
+
+PAGE_MAX_DETAILS = 15
+PAGE_MAX_CHAPTER = 15
 
 
 # Application definition

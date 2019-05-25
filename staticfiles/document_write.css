@@ -1,6 +1,5 @@
 .body-content .wrap-content{
     height: 1000px;
-    background-color: yellow;
     text-align: center;
 }
 
@@ -21,16 +20,17 @@
     margin-top: 20px;
 
     font-family: 'Noto Serif KR', serif;
-    font-size: 21px;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .content-field-wrapper .box-content{
-    height: 600px;
+    height: 750px;
     width: 80%;
 
     display: inline-block;
 
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 .content-field-wrapper .box-content input[type=text]{
@@ -51,11 +51,26 @@
 }
 
 .box-content .textarea-wrapper{
-    height: 800px;
-    background-color: blue;
+    height: 610px;
 }
 
 .box-content .textarea-wrapper textarea{
     width: 90%;
     height: 90%;
+}
+
+.box-content .button-wrapper input{
+    font-size: 18px;
+    width: 90px;
+    height: 40px;
+    background-color: #d6d6d6;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Noto Sans KR', sans-serif;
+
+    float: right;
+}
+
+.box-content .button-wrapper input[type=submit]:active{
+    background-color: #a5a5a5;
 }
