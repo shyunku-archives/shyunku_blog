@@ -46,6 +46,16 @@ class Documents_Info(models.Model):
         return self.classify + "-" + self.doc_index + "-" + self.doc_writer + "-" + self.doc_title
 
 
+class Comments(models.Model):
+    comment_time = models.DateTimeField(auto_now_add=True, blank=True)
+    comment_content = models.TextField(default="")
+    comment_writer = models.ForeignKey(User_Info, null=True, on_delete=models.CASCADE)
+    comment_post = models.ForeignKey(Documents_Info, null=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.comment_post.__str__() + "-" + self.comment_writer.user_nickname
+
+
 class SummerNote(summer_model.Attachment):
     summer_field = summer_fields.SummernoteTextField(default='')
 
