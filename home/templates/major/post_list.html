@@ -8,6 +8,14 @@
         <title>션쿠의 개인 블로그</title>
     </head>
     <body>
+        {% if classification == "individual" %}
+            {% if request.session.userid != superuser_id %}
+                <script>
+                    alert('개인 게시판은 블로그 관리자만 접근 가능합니다.\n블로그 관리자라면 로그인 해주십시오.');
+                    window.location.href='/homepage';
+                </script>
+            {% endif %}
+        {% endif %}
         <!-- 아래까지 공통 부분 -->
         <div class="background-content">
             <div class="logo">
@@ -87,7 +95,7 @@
                             {% for docs in posts %}
                                 <div id="index-list">{{ docs.doc_index }}</div>
                                 <div id="title-list">
-                                    <a id="title-list-a" href="postview?pindex={{ docs.doc_index }}">{{ docs.doc_title }}</a>
+                                    <a id="title-list-a" href="postview?pindex={{ docs.doc_index }}&classify={{ classification }}">{{ docs.doc_title }}</a>
                                 </div>
                                 <div id="writer-list">{{ docs.doc_writer }}</div>
                                 <div id="time-list">{{ docs.doc_time }}</div>
@@ -98,7 +106,7 @@
                         <div class="navigator-wrapper">
                             <div class="prev-wrapper">
                                 {% if posts.has_previous %}
-                                    <a href="?page={{ posts.previous_page_number }}">prev</a>
+                                    <a href="?name={{ classification }}&page={{ posts.previous_page_number }}">prev</a>
                                 {% else %}
                                     <a style="color: #CCCCCC;">prev</a>
                                 {% endif %}
@@ -110,7 +118,7 @@
                                             {% if posts.number == page %}
                                                 <strong style="color: #5555EE;">{{ page }}</strong>
                                             {% else %}
-                                                <a href="?page={{ page }}">{{ page }}</a>
+                                                <a href="?name={{ classification }}&page={{ page }}">{{ page }}</a>
                                             {% endif %}
                                         </li>
                                     {% endif %}
@@ -118,15 +126,25 @@
                             </div>
                             <div class="next-wrapper">
                                 {% if posts.has_next %}
-                                    <a href="?page={{ posts.next_page_number }}">next</a>
+                                    <a href="?name={{ classification }}&page={{ posts.next_page_number }}">next</a>
                                 {% else %}
                                     <a style="color: #CCCCCC;">next</a>
                                 {% endif %}
                             </div>
                         </div>
                         <div class="write-button-wrapper">
-                            <button id="write_new_doc" onclick="location.href='/write-post?board={{ classification }}'" type="button">글쓰기</button>
+                            <button id="write_new_doc" onclick="is_session_alive()" type="button">글쓰기</button>
                         </div>
+                        <script>
+                            function is_session_alive(){
+                                {% if request.session.username == None %}
+                                    alert('포스팅을 하시려면 우선 로그인해야 합니다.');
+                                    location.href='/login?call={{ classification }}';
+                                {% else %}
+                                    location.href='/write-post?board={{ classification }}';
+                                {% endif %}
+                            }
+                        </script>
                     </div>
                 </div>
             </div>

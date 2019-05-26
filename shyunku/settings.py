@@ -50,12 +50,12 @@ USER_INFO_CONDITION = {
     'PW_MIN_LEN' : 6,
 }
 
-PROCESS_RATE = '59'
-SITE_VER = '0.4.0'
-CSS_VER = 121
+PROCESS_RATE = '81'
+SITE_VER = '0.5.0'
+CSS_VER = 129
 
-PAGE_MAX_DETAILS = 15
-PAGE_MAX_CHAPTER = 15
+PAGE_MAX_DETAILS = 15       # 게시글 한 페이지당 보여지는 포스팅 수
+PAGE_MAX_CHAPTER = 15       # 게시판 페이지가 한번에 보여지는 수
 
 
 # Application definition
@@ -138,13 +138,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
-USE_TZ = True
+USE_TZ = False
+
+DATETIME_FORMAT = 'Y-m-d H:i:s'
 
 
 # Static files (CSS, JavaScript, Images)
@@ -162,4 +164,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 #SummerNote
 MEDIA_URL='/media/'
-SUMMERNOTE_CONFIG = {}
+SUMMERNOTE_CONFIG = {
+    'iframe': True,
+
+    'disable_attachment': False,
+
+    'summernote': {
+        'airmode': True,
+
+
+        'lang': 'ko-KR',
+        'width': '100%',
+        'height': '620px'
+    },
+}

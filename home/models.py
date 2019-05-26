@@ -32,6 +32,7 @@ class Variables(models.Model):
     def __str__(self):
         return "Variables"
 
+
 class Documents_Info(models.Model):
     classify = models.CharField(max_length=20)
     doc_index = models.CharField(default="00001", max_length=15)

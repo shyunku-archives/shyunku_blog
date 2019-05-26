@@ -1,14 +1,9 @@
-.content-field-wrapper {
-    height: 600px;
-}
-
 .content-field-wrapper .content-box{
     background-color: white;
     border-radius: 10px;
     box-shadow: 3px 3px 3px 3px #8080A0;
 
     width: 98%;
-    height: 90%;
 
     text-align: center;
 }
@@ -24,12 +19,24 @@
 
 .post-content-wrapper{
     text-align: center;
-    height: 100%;
 }
 
-.post-content-wrapper .post-content{
+.post-content-wrapper .post-body-wrapper{
     display: inline-block;
     width: 90%;
-    height: 100%;
+    text-align: center;
+    font-family: 'Noto Serif KR', serif;
+}
+
+.post-content-wrapper .post-body-wrapper .post-content{
+    border-radius: 10px;
+
+    background-color: #F0F0F0;
+    display: inline-block;
     text-align: justify;
+    width: 90%;
+
+    padding: 30px;
+    margin-top: 30px;
+    margin-bottom: 100px;
 }

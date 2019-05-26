@@ -50,7 +50,7 @@
                         <div class="login-text">
                             <h3>계정 로그인</h3>
                         </div>
-                        <form action="authen" method="post" onsubmit="return check_information();">
+                        <form name="authentification" method="post" onsubmit="return check_information();">
                             {% csrf_token %}
                             <div class="textfield">
                                 <div class="ID-textfield">
@@ -61,9 +61,6 @@
                                 </div>
                             </div>
                             <div class="button-lists">
-                                <div class="splitter">
-                                    <input class="chk_remember" type="checkbox"> &nbsp;정보 기억하기
-                                </div>
                                 <input id="login_confirm_btn" type="submit" value="로그인">
                                 <button id="signup_btn" onclick="location.href='signup'" type="button">회원가입</button>
                             </div>
@@ -75,6 +72,11 @@
                                 {% for user in user_information %}
                                     if(typed_id == "{{ user.user_id }}") {
                                         if (typed_pw == "{{ user.user_pw }}") {
+                                            {% if previous_call != None %}
+                                                document.authentification.action="authen?call="+"{{ previous_call }}";
+                                            {% else %}
+                                                document.authentification.action="authen";
+                                            {% endif %}
                                             return true;
                                         }
                                         document.getElementById('user_pw').value="";

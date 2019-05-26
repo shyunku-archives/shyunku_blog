@@ -107,8 +107,7 @@
 
     display: inline-block;
 
-    margin-top: 8px;
-    margin-bottom: -4px;
+    margin-bottom: -12px;
 }
 
 .body-content .big-window-wrapper .list-box .list-classify li{
@@ -232,6 +231,9 @@
     text-align: center;
     width: 100%;
     font-family: 'Noto Sans KR', sans-serif;
+
+    position: absolute;
+    bottom: 115px;
 }
 
 .list-box .navigator-wrapper .prev-wrapper{

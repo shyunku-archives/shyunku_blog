@@ -49,11 +49,11 @@
                 <div class="content-field-wrapper">
                     <div class="box-title">{{ board_name }} 게시판에 글쓰기</div>
                     <hr style="width: 90%; height: 2px; border:none; background-color: black">
-                    <form action="posting?board={{ classification }}" method="post">
+                    <form action="posting?board={{ classification }}" method="post" onsubmit="return check_form();">
                         {% csrf_token %}
                         <div class="box-content">
                             <div class="document-title">
-                                <input id="doc_title" type="text" name="doc-title" size="55" placeholder="제목을 입력하세요." autocomplete="off" maxlength="100" spellcheck="false">
+                                <input id="doc_title" type="text" name="doc-title" size="55" placeholder="36바이트 이내로 제목을 입력하세요." autocomplete="off" maxlength="45" spellcheck="false" required>
                             </div>
                             <div class="textarea-wrapper">
                                 {{ form|safe }}
@@ -63,6 +63,26 @@
                             </div>
                         </div>
                     </form>
+                    <script type="text/javascript">
+                        function get_byte_from_str(str){
+                            let total_byte = 0
+                            for(let index = 0, len = str.length; index < len; index++){
+                                var cur_byte = str.charCodeAt(index);
+                                (cur_byte > 128) ? total_byte += 2 : total_byte++;
+                            }
+                            return total_byte;
+                        }
+
+                        function check_form(){
+                            let title_str = document.getElementById('doc_title').value;
+                            bytes = get_byte_from_str(title_str);
+                            if(bytes>36){
+                                alert("포스트 제목 길이가 "+(bytes-36).toString()+"바이트 초과되었습니다.");
+                                return false;
+                            }
+                            return true;
+                        }
+                    </script>
                 </div>
             </div>
         </div>

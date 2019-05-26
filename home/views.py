@@ -1,5 +1,3 @@
-from django.shortcuts import render
-from django.http import HttpResponse
 from django.conf import settings
 from home.models import User_Info, Variables, Documents_Info
 
@@ -7,6 +5,7 @@ from home.forms import PostForm
 
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib import messages
 
 
 context_default = {
@@ -73,15 +72,18 @@ def index(request):
 
 def get_develop_log(request):
     update_context()
+
     return render(request, 'major/development_log.html', context_default)
 
 
 def get_login_page(request):
+    update_context()
     User_Infos = User_Info.objects.all()
+    prev = request.GET.get('call')
     login_context = {
         'user_information': User_Infos,
+        'previous_call' : prev,
     }
-    update_context()
     return render(request, 'major/login_page.html', merge_dicts(context_default, login_context))
 
 
@@ -106,8 +108,12 @@ def post_user_login(request):
             request.session['username'] = user.user_nickname
             request.session['userid'] = user.user_id
             break
-    return index(request)
 
+    previous = request.GET.get('call')
+
+    if previous == None:
+        return redirect('/homepage')
+    return redirect('/board?name=' + previous)
 
 def user_logout(request):
     try:
@@ -193,10 +199,11 @@ def get_board_list(request):
 
     board_name = switch_urlname_to_board_name(classification)
 
-    post_all_list = Documents_Info.objects.filter(classify=classification)
+    post_all_list = Documents_Info.objects.filter(classify=classification).order_by('doc_index').reverse()
     paginator = Paginator(post_all_list, settings.PAGE_MAX_DETAILS)
 
     page = request.GET.get('page')
+
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:
@@ -205,6 +212,7 @@ def get_board_list(request):
         posts = paginator.page(paginator.num_pages)
 
     ranger = range(1,settings.PAGE_MAX_CHAPTER+1)
+
     if page != None :
         pagei = int(page)
         page_page = (int)((pagei-1)/settings.PAGE_MAX_CHAPTER)
@@ -215,6 +223,8 @@ def get_board_list(request):
 
     page_viewed_total = 0
     posts_num = len(post_all_list)
+
+    print(ranger)
 
     for post_data in post_all_list:
         page_viewed_total += post_data.doc_view_cnt
@@ -287,12 +297,17 @@ def post_document(request):
 
 def postview(request):
     update_context()
+
+    classification = request.GET.get('classify')
+    board_name = switch_urlname_to_board_name_trick(classification)
+
     post_index = request.GET.get('pindex')
     datas = Documents_Info.objects.filter(doc_index=post_index)
     Documents_Info.objects.filter(doc_index=post_index).update(doc_view_cnt= datas.first().doc_view_cnt+1)
 
     addition = {
         'doc_data' : datas.first(),
+        'board_name' : board_name,
     }
 
     merged = merge_dicts(context_default, document_context)
