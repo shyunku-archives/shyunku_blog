@@ -3,6 +3,8 @@ from ckeditor.fields import RichTextField
 from django_summernote import models as summer_model
 from django_summernote import fields as summer_fields
 
+from django.urls import reverse
+
 
 class Post(models.Model):
     content = RichTextField()
@@ -34,6 +36,14 @@ class Variables(models.Model):
 
 
 class Documents_Info(models.Model):
+    def get_absolute_url(self):
+        return reverse(
+            'home:view_post', args={
+                'pindex':self.doc_index,
+                'classify':self.classify
+            }
+        )
+
     classify = models.CharField(max_length=20)
     doc_index = models.CharField(default="00001", max_length=15)
     doc_title = models.CharField(max_length=20)
@@ -50,7 +60,7 @@ class Comments(models.Model):
     comment_time = models.DateTimeField(auto_now_add=True, blank=True)
     comment_content = models.TextField(default="")
     comment_writer = models.ForeignKey(User_Info, null=True, on_delete=models.CASCADE)
-    comment_post = models.ForeignKey(Documents_Info, null=True, on_delete=models.CASCADE)
+    comment_post = models.ForeignKey(Documents_Info, null=True, on_delete=models.CASCADE, related_name="commented")
 
     def __str__(self):
         return self.comment_post.__str__() + "-" + self.comment_writer.user_nickname

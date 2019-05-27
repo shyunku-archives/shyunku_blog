@@ -1,11 +1,13 @@
 from django.conf import settings
-from home.models import User_Info, Variables, Documents_Info
+from home.models import User_Info, Variables, Documents_Info, Comments
+from django.http import HttpResponse
 
 from home.forms import PostForm
 
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
+
 
 
 context_default = {
@@ -224,7 +226,6 @@ def get_board_list(request):
     page_viewed_total = 0
     posts_num = len(post_all_list)
 
-    print(ranger)
 
     for post_data in post_all_list:
         page_viewed_total += post_data.doc_view_cnt
@@ -305,10 +306,26 @@ def postview(request):
     datas = Documents_Info.objects.filter(doc_index=post_index)
     Documents_Info.objects.filter(doc_index=post_index).update(doc_view_cnt= datas.first().doc_view_cnt+1)
 
+    post = Documents_Info.objects.filter(doc_index=post_index).first()
+
+
     addition = {
         'doc_data' : datas.first(),
         'board_name' : board_name,
+        'post': post,
     }
 
     merged = merge_dicts(context_default, document_context)
     return render(request, 'major/show_post.html', merge_dicts(merged, addition))
+
+
+def save_new_comment(request):
+    if request.method == 'POST':
+        post = Documents_Info.objects.filter(doc_index=request.POST['post_id']).first()
+        user = User_Info.objects.filter(user_id=request.session['userid']).first()
+        Comments.objects.create(
+            comment_content=request.POST['comment_contents'],
+            comment_writer=user,
+            comment_post=post
+        )
+        return redirect('/postview?pindex='+post.doc_index+'&classify='+post.classify)

@@ -1,6 +1,8 @@
 from django.urls import path, include
 from . import views
 
+app_name = 'home'
+
 urlpatterns = [
     path('', views.index),
     path('homepage', views.index),
@@ -15,5 +17,7 @@ urlpatterns = [
     path('board', views.get_board_list),
     path('write-post', views.get_write_post),
     path('posting', views.post_document),
-    path('postview', views.postview)
+    path('postview', views.postview, name='view_post'),
+
+    path('comment/new/', views.save_new_comment, name='new_comment'),
 ]

@@ -50,12 +50,14 @@ USER_INFO_CONDITION = {
     'PW_MIN_LEN' : 6,
 }
 
-PROCESS_RATE = '81'
-SITE_VER = '0.5.0'
-CSS_VER = 129
+PROCESS_RATE = '82'
+SITE_VER = '0.6.0'
+CSS_VER = 132
 
 PAGE_MAX_DETAILS = 15       # 게시글 한 페이지당 보여지는 포스팅 수
-PAGE_MAX_CHAPTER = 15       # 게시판 페이지가 한번에 보여지는 수
+PAGE_MAX_CHAPTER = 10       # 게시판 페이지가 한번에 보여지는 수
+
+BUTTON_PRESSED_COLOR = "#a5a5a5"
 
 
 # Application definition
