@@ -5,9 +5,6 @@ from django_summernote import fields as summer_fields
 from django.urls import reverse
 
 
-class Post(models.Model):
-    content = RichTextField()
-
 
 class User_Info(models.Model):
     user_id = models.CharField(max_length=20)
