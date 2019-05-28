@@ -19,5 +19,6 @@ urlpatterns = [
     path('posting', views.post_document),
     path('postview', views.postview, name='view_post'),
 
-    path('comment/new/', views.save_new_comment, name='new_comment'),
+    path('comment/new', views.save_new_comment, name='new_comment'),
+    path('comment/delete', views.delete_comment)
 ]

@@ -48,9 +48,34 @@
 .post-content-wrapper .post-path-content .post-title{
     font-weight: bold;
     font-size: 30px;
+
+    float: left;
+    padding-left: 10px;
+
+    width: 100%;
+    text-align: left;
 }
 
 .post-content-wrapper .post-path-content .post-poster{
     font-weight: bold;
     font-size: 12px;
+
+    float: left;
+    text-align: left;
+    width: 70%;
+    padding-left: 10px;
+
+    display: inline-block;
+}
+
+.post-content-wrapper .post-path-content .post-view-cnt{
+    font-weight: bold;
+    font-size: 12px;
+
+    float: right;
+    text-align: right;
+    width: 20%;
+    padding-right: 10px;
+
+    display: inline-block;
 }

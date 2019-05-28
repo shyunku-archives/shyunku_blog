@@ -314,3 +314,15 @@ html, body{
 .signup-content-wrapper .button-field button:active{
     background-color: #a5a5a5;
 }
+
+#button-like-a{
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    color: black;
+    padding: 0;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: inherit;
+}

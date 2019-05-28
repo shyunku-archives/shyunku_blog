@@ -4,7 +4,7 @@ from home.forms import PostForm
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from home.custom import *
-
+from django.http import HttpResponseForbidden
 
 
 context_default = {
@@ -185,6 +185,9 @@ def get_write_post(request):
     update_context()
     pform = PostForm()
 
+    if 'userid' not in request.session:
+        return render(request, 'major/forbidden.html', context_default)
+
     classification = request.GET.get('board')
     board_rename = switch_urlname_to_board_name_trick(classification)
     addition = {
@@ -202,7 +205,7 @@ def get_write_post(request):
 
 def post_document(request):
     recent_index = Variables.objects.all().first().doc_index_recent + 1
-    Variables.objects.all().first().update(doc_index_recent=recent_index)
+    Variables.objects.all().update(doc_index_recent=recent_index)
 
     classification = request.GET.get('board')
 
@@ -252,14 +255,23 @@ def save_new_comment(request):
     if request.method == 'POST':
 
         recent_index = Variables.objects.all().first().comment_index_recent + 1
-        Variables.objects.all().first().update(comment_index_recent=recent_index)
+        Variables.objects.all().update(comment_index_recent=recent_index)
 
         post = Documents_Info.objects.filter(doc_index=request.POST['post_id']).first()
         user = User_Info.objects.filter(user_id=request.session['userid']).first()
-        Comments.objects.create(
+        Comment.objects.create(
             comment_content=request.POST['comment_contents'],
             comment_writer=user,
             comment_post=post,
             comment_id='{:06d}'.format(recent_index),
         )
         return redirect('/postview?pindex='+post.doc_index+'&classify='+post.classify)
+
+
+def delete_comment(request):
+    comment_id = request.GET.get('comment_id')
+    comment_obj = Comment.objects.filter(comment_id=comment_id).first()
+    post = comment_obj.comment_post
+    comment_obj.delete()
+
+    return redirect('/postview?pindex='+post.doc_index+'&classify='+post.classify)

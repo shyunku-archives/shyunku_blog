@@ -75,6 +75,9 @@
                                     <div class="post-poster">
                                         {{ doc_data.doc_writer }} | {{ doc_data.doc_time }}
                                     </div>
+                                    <div class="post-view-cnt">
+                                        조회수 : {{ doc_data.doc_view_cnt }}
+                                    </div>
                                 </div>
                                 <div class="post-content">
                                     {{ doc_data.doc_content|safe }}
@@ -97,6 +100,14 @@
                                                 <div class="single-comment-wrapper">
                                                     <div class="comment-writer">{{ comment.comment_writer.user_nickname }}</div>
                                                     <div class="comment-time">{{ comment.comment_time }}</div>
+                                                    {% if request.session.userid == comment.comment_writer.user_id or request.session.userid == superuser_id %}
+                                                        <div class="comment-delete">
+                                                            <form action="comment/delete?comment_id={{ comment.comment_id }}" method="post" onsubmit="return saveScroll()">
+                                                                {% csrf_token %}
+                                                                <button id="button-like-a" type="submit">삭제</button>
+                                                            </form>
+                                                        </div>
+                                                    {% endif %}
                                                     <hr style="width: 97%; height: 1px; border:none; background-color: grey">
                                                     <div class="comment-content">{{ comment.comment_content }}</div>
                                                 </div>
@@ -112,7 +123,7 @@
                                             {% csrf_token %}
                                             <input type="hidden" name="post_id" value="{{ doc_data.doc_index }}"/>
                                             <div class="write-comment-content">
-                                                <textarea name="comment_contents"></textarea>
+                                                <textarea name="comment_contents" placeholder="Leave a comment..." id="textarea-comment"></textarea>
                                             </div>
                                             <div class="save-comment">
                                                 <button type="submit" id="comment_save_btn">등록</button>
@@ -120,6 +131,12 @@
                                         </form>
                                         <script>
                                             function saveScroll() {
+                                                comment_content = document.getElementById('textarea-comment').value;
+                                                if(comment_content.length == 0){
+                                                    document.getElementById('textarea-comment').style.border="1px solid rgba(238, 23, 28, 1)";
+                                                    document.getElementById('textarea-comment').style.boxShadow="0 0 5px rgba(238, 23, 28, 1)";
+                                                    return false;
+                                                }
                                                 localStorage.setItem("scroll-position", $(window).scrollTop());
                                                 return true;
                                             }

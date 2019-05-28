@@ -135,6 +135,14 @@
                                     }
                                 {% endfor %}
 
+                                {% for user in user_information %}
+                                    if("{{ user.user_nickname }}" == user_nk_str){
+                                        alert('이미 존재하는 닉네임입니다.');
+                                        document.getElementById('user_nick').value = "";
+                                        return false;
+                                    }
+                                {% endfor %}
+
 
                                 alert('해당 정보로 로그인하시기 바랍니다.');
                                 return true;
