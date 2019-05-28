@@ -30,6 +30,8 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '13.125.75.103',
+    'soft.shyunku-blog.com',
+    'shyunku-blog.com',
 ]
 
 
