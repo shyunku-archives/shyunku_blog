@@ -62,14 +62,19 @@
             <div class="wrap-content">
                 <div class="content-field-wrapper">
                     <div class="content-box">
-                        <div class="post-title">
+                        <div class="post-title-board">
                             <h2>{{ board_name }} 게시판</h2>
                         </div>
                         <hr style="width: 90%; height: 2px; border:none; background-color: black">
                         <div class="post-content-wrapper">
                             <div class="post-body-wrapper">
                                 <div class="post-path-content">
-                                    <h1>{{ doc_data.doc_title }}</h1>
+                                    <div class="post-title">
+                                        {{ doc_data.doc_title }}
+                                    </div>
+                                    <div class="post-poster">
+                                        {{ doc_data.doc_writer }} | {{ doc_data.doc_time }}
+                                    </div>
                                 </div>
                                 <div class="post-content">
                                     {{ doc_data.doc_content|safe }}

@@ -125,6 +125,17 @@
                                 }
 
                                 if(!is_passed) return false;
+
+
+                                {% for user in user_information %}
+                                    if("{{ user.user_id }}" == user_id_str){
+                                        alert('이미 존재하는 아이디입니다.');
+                                        document.getElementById('user_id').value = "";
+                                        return false;
+                                    }
+                                {% endfor %}
+
+
                                 alert('해당 정보로 로그인하시기 바랍니다.');
                                 return true;
                             }

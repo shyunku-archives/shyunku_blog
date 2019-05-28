@@ -20,8 +20,10 @@ class User_Info(models.Model):
 
 
 class Variables(models.Model):
+    doc_index_recent = models.IntegerField(default=0)
+    comment_index_recent = models.IntegerField(default=0)
+
     visits = models.IntegerField(default=0)
-    doc_index_recent = models.IntegerField(default=1)
     visits_free = models.IntegerField(default=0)
     visits_rout = models.IntegerField(default=0)
     visits_lol = models.IntegerField(default=0)
@@ -56,11 +58,12 @@ class Documents_Info(models.Model):
         return self.classify + "-" + self.doc_index + "-" + self.doc_writer + "-" + self.doc_title
 
 
-class Comments(models.Model):
+class Comment(models.Model):
     comment_time = models.DateTimeField(auto_now_add=True, blank=True)
     comment_content = models.TextField(default="")
     comment_writer = models.ForeignKey(User_Info, null=True, on_delete=models.CASCADE)
     comment_post = models.ForeignKey(Documents_Info, null=True, on_delete=models.CASCADE, related_name="commented")
+    comment_id = models.CharField(default="000001", max_length=15)
 
     def __str__(self):
         return self.comment_post.__str__() + "-" + self.comment_writer.user_nickname

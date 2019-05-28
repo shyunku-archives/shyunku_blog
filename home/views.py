@@ -1,12 +1,9 @@
 from django.conf import settings
-from home.models import User_Info, Variables, Documents_Info, Comments
-from django.http import HttpResponse
-
+from home.models import User_Info, Variables, Documents_Info, Comment
 from home.forms import PostForm
-
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.contrib import messages
+from home.custom import *
 
 
 
@@ -53,10 +50,6 @@ def update_context():
     }
 
 
-def merge_dicts(x, y):
-    return {**x, **y}
-
-
 def index(request):
     save_count = 0
     for visit_counter in Variables.objects.filter().all():
@@ -81,6 +74,7 @@ def get_develop_log(request):
 def get_login_page(request):
     update_context()
     User_Infos = User_Info.objects.all()
+
     prev = request.GET.get('call')
     login_context = {
         'user_information': User_Infos,
@@ -91,7 +85,11 @@ def get_login_page(request):
 
 def get_signup_page(request):
     update_context()
-    return render(request, 'major/signup.html', context_default)
+    User_Infos = User_Info.objects.all()
+    login_context = {
+        'user_information': User_Infos,
+    }
+    return render(request, 'major/signup.html', merge_dicts(context_default, login_context))
 
 
 def post_user_info(request):
@@ -101,7 +99,7 @@ def post_user_info(request):
         user_pw=request.POST.get('user-pw')
     )
     obj.save()
-    return get_login_page(request)
+    return redirect('/login')
 
 
 def post_user_login(request):
@@ -117,79 +115,14 @@ def post_user_login(request):
         return redirect('/homepage')
     return redirect('/board?name=' + previous)
 
+
 def user_logout(request):
     try:
         del request.session['username']
         del request.session['userid']
     except:
         pass
-    return index(request)
-
-
-
-# LIST PAGES
-
-
-def switch_urlname_to_board_name(str):
-    strdict = {
-        'free' : "자유게시판",
-        'routine' : "일상",
-        'league-of-legends' : "LOL",
-        'deep-learning' : "딥러닝",
-        'web' : "WEB",
-        'java' : "JAVA",
-        'window-issues': "Window",
-        "individual": "개인게시판",
-    }
-
-    returns = strdict.get(str, "null")
-
-    return returns
-
-def switch_urlname_to_board_name_trick(str):
-    strdict = {
-        'free' : "자유",
-        'routine' : "일상",
-        'league-of-legends' : "리그오브레전드",
-        'deep-learning' : "Deep-Learning",
-        'web' : "WEB",
-        'java' : "JAVA",
-        'window-issues': "Window Issues",
-        "individual": "개인",
-    }
-
-    returns = strdict.get(str, "null")
-
-    return returns
-
-
-def update_visits(classify):
-    value = 0
-    if classify == "free":
-        value = Variables.objects.first().visits_free
-        Variables.objects.all().update(visits_free= value+1)
-    elif classify == "routine":
-        value = Variables.objects.first().visits_rout
-        Variables.objects.all().update(visits_rout=value + 1)
-    elif classify == "league-of-legends":
-        value = Variables.objects.first().visits_lol
-        Variables.objects.all().update(visits_lol=value + 1)
-    elif classify == "deep-learning":
-        value = Variables.objects.first().visits_dl
-        Variables.objects.all().update(visits_dl=value + 1)
-    elif classify == "web":
-        value = Variables.objects.first().visits_web
-        Variables.objects.all().update(visits_web=value + 1)
-    elif classify == "java":
-        value = Variables.objects.first().visits_java
-        Variables.objects.all().update(visits_java=value + 1)
-    elif classify == "window-issues":
-        value = Variables.objects.first().visits_window
-        Variables.objects.all().update(visits_window=value + 1)
-    elif classify == "individual":
-        value = Variables.objects.first().visits_indiv
-        Variables.objects.all().update(visits_indiv=value + 1)
-    return value+1
+    return redirect('/homepage')
 
 
 def get_board_list(request):
@@ -268,12 +201,8 @@ def get_write_post(request):
 
 
 def post_document(request):
-    recent_index = -1
-    for variable in Variables.objects.filter().all():
-        recent_index = variable.doc_index_recent+1
-        break
-
-    Variables.objects.all().update(doc_index_recent=recent_index)
+    recent_index = Variables.objects.all().first().doc_index_recent + 1
+    Variables.objects.all().first().update(doc_index_recent=recent_index)
 
     classification = request.GET.get('board')
 
@@ -321,11 +250,16 @@ def postview(request):
 
 def save_new_comment(request):
     if request.method == 'POST':
+
+        recent_index = Variables.objects.all().first().comment_index_recent + 1
+        Variables.objects.all().first().update(comment_index_recent=recent_index)
+
         post = Documents_Info.objects.filter(doc_index=request.POST['post_id']).first()
         user = User_Info.objects.filter(user_id=request.session['userid']).first()
         Comments.objects.create(
             comment_content=request.POST['comment_contents'],
             comment_writer=user,
-            comment_post=post
+            comment_post=post,
+            comment_id='{:06d}'.format(recent_index),
         )
         return redirect('/postview?pindex='+post.doc_index+'&classify='+post.classify)

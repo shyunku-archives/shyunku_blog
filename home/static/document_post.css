@@ -14,13 +14,11 @@
     text-align: center;
 }
 
-.content-box .post-title{
-    margin-top: 30px;
+.content-box .post-title-board{
+    margin-top: 15px;
     font-family: 'Noto Serif KR', serif;
-}
 
-.content-box .post-title h1{
-    font-size: 40px;
+    font-size: 15px;
 }
 
 .post-content-wrapper{
@@ -44,5 +42,15 @@
 
     padding: 30px;
     margin-top: 30px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
+}
+
+.post-content-wrapper .post-path-content .post-title{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.post-content-wrapper .post-path-content .post-poster{
+    font-weight: bold;
+    font-size: 12px;
 }
