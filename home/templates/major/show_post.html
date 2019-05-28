@@ -119,7 +119,7 @@
                             <div class="comment-write-wrapper">
                                 <div class="write-comment-box">
                                     <div class="write-content-wrapper">
-                                        <form action="{% url 'home:new_comment'%}" method="post" id="forms" onsubmit="return saveScroll()">
+                                        <form action="{% url 'home:new_comment'%}" method="post" id="forms" onsubmit="return saveComment()">
                                             {% csrf_token %}
                                             <input type="hidden" name="post_id" value="{{ doc_data.doc_index }}"/>
                                             <div class="write-comment-content">
@@ -130,13 +130,17 @@
                                             </div>
                                         </form>
                                         <script>
-                                            function saveScroll() {
+                                            function saveComment(){
                                                 comment_content = document.getElementById('textarea-comment').value;
                                                 if(comment_content.length == 0){
                                                     document.getElementById('textarea-comment').style.border="1px solid rgba(238, 23, 28, 1)";
                                                     document.getElementById('textarea-comment').style.boxShadow="0 0 5px rgba(238, 23, 28, 1)";
                                                     return false;
                                                 }
+                                                localStorage.setItem("scroll-position", $(window).scrollTop());
+                                                return true;
+                                            }
+                                            function saveScroll() {
                                                 localStorage.setItem("scroll-position", $(window).scrollTop());
                                                 return true;
                                             }

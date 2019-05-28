@@ -50,8 +50,8 @@ USER_INFO_CONDITION = {
     'PW_MIN_LEN' : 6,
 }
 
-PROCESS_RATE = '83'
-SITE_VER = '0.6.3v beta'
+PROCESS_RATE = '84'
+SITE_VER = '0.6.4v beta'
 CSS_VER = 137
 
 PAGE_MAX_DETAILS = 15       # 게시글 한 페이지당 보여지는 포스팅 수
@@ -138,7 +138,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
 
 TIME_ZONE = 'Asia/Seoul'
 
@@ -148,7 +148,7 @@ USE_L10N = False
 
 USE_TZ = False
 
-DATETIME_FORMAT = 'Y-m-d H:i:s'
+DATETIME_FORMAT = 'Y-m-d A g:i'
 
 
 # Static files (CSS, JavaScript, Images)
