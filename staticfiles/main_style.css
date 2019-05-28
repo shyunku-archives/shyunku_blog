@@ -5,7 +5,6 @@ body, h1, h2, h4{
 
 html, body{
     height: 100%;
-    overflow: auto;
 }
 
 .background-content{
@@ -88,8 +87,12 @@ html, body{
 .body-content{
     background-color: #E7E7EF;
     padding-top: 40px;
-    margin-bottom: 0;
-    height: 100%;
+
+    min-height: 100%;
+
+    display: block;
+    overflow: auto;
+    padding-bottom: 200px;
 }
 
 .body-content .title-content{
@@ -104,7 +107,7 @@ html, body{
 }
 
 .body-content .main-content{
-    padding-top: 80px;
+    padding-top: 60px;
     font-family: 'Noto Serif KR', serif;
 }
 
@@ -310,4 +313,16 @@ html, body{
 
 .signup-content-wrapper .button-field button:active{
     background-color: #a5a5a5;
+}
+
+#button-like-a{
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    color: black;
+    padding: 0;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: inherit;
 }

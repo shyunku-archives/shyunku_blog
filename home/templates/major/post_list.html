@@ -134,7 +134,9 @@
                             </div>
                         </div>
                         <div class="write-button-wrapper">
-                            <button id="write_new_doc" onclick="is_session_alive()" type="button">글쓰기</button>
+                            {% if classification == "free" or request.session.userid == superuser_id %}
+                                <button id="write_new_doc" onclick="is_session_alive()" type="button">글쓰기</button>
+                            {% endif %}
                         </div>
                         <script>
                             function is_session_alive(){

@@ -23,10 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'x_bp^)367cc*j)qwdj39&!du=wmo%n52!5n_m)vrb9c*^ru0)x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
-    'http://whdudgns412.pythonanywhere.com/',
+    '.ap-northeast-2.compute.amazonaws.com',
     'localhost',
     '127.0.0.1',
 ]
@@ -51,8 +51,8 @@ USER_INFO_CONDITION = {
 }
 
 PROCESS_RATE = '84'
-SITE_VER = '0.6.4v beta'
-CSS_VER = 138
+SITE_VER = '0.7.0v beta'
+CSS_VER = 139
 
 PAGE_MAX_DETAILS = 15       # 게시글 한 페이지당 보여지는 포스팅 수
 PAGE_MAX_CHAPTER = 10       # 게시판 페이지가 한번에 보여지는 수

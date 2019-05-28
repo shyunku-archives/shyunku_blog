@@ -25,7 +25,7 @@
 .body-content .small-window-wrapper .status-box{
     display: inline-block;
     width: 85%;
-    height: 450px;
+    height: 300px;
 
     background-color: white;
     border-radius: 10px;
@@ -107,8 +107,7 @@
 
     display: inline-block;
 
-    margin-top: 8px;
-    margin-bottom: -4px;
+    margin-bottom: -12px;
 }
 
 .body-content .big-window-wrapper .list-box .list-classify li{
@@ -226,61 +225,4 @@
     padding-right: 8.19px;
     width: 80px;
     text-align: center;
-}
-
-.list-box .navigator-wrapper{
-    text-align: center;
-    width: 100%;
-    font-family: 'Noto Sans KR', sans-serif;
-}
-
-.list-box .navigator-wrapper .prev-wrapper{
-    margin-left: 15%;
-    float: left;
-}
-
-.list-box .navigator-wrapper .page-navigator{
-    display: inline-block;
-    text-align: center;
-    width: auto;
-}
-
-.list-box .navigator-wrapper .next-wrapper{
-    margin-right: 15%;
-    float: right;
-}
-
-.list-box .navigator-wrapper a{
-    text-decoration: none;
-    color: black;
-}
-
-.list-box .navigator-wrapper a:hover{
-    color: #AAAAAA;
-}
-
-.list-box .navigator-wrapper .page-navigator li{
-    list-style: none;
-    float: left;
-    display: inline-block;
-    text-align: center;
-}
-
-.list-box .navigator-wrapper .page-navigator a, strong{
-    margin-left: 10px;
-    margin-right: 10px;
-    text-decoration: none;
-    color: black;
-}
-
-.list-box .navigator-wrapper .page-navigator a:hover{
-    color: #AAAAAA;
-}
-
-.list-box .navigator-wrapper .prev-wrapper text{
-    color: #CCCCCC;
-}
-
-.list-box .navigator-wrapper .next-wrapper text{
-    color: #CCCCCC;
 }

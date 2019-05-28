@@ -1,0 +1,207 @@
+.content-field-wrapper .comment-box-wrapper{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px #8080A0;
+
+    width: 68%;
+
+    margin-top: 30px;
+
+    display: inline-block;
+    text-align: center;
+
+    overflow: auto;
+    overflow-y: hidden;
+}
+
+.content-field-wrapper .comment-box-wrapper .comment-box-title{
+    margin-top: 30px;
+}
+
+.comment-box-content .comment-write-wrapper{
+    height: 120px;
+    margin-bottom: 70px;
+    margin-top: 20px;
+}
+
+.comment-write-wrapper .write-comment-box{
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px #8080A0;
+    background-color: #D7D7DF;
+
+    display: inline-block;
+    width: 90%;
+    height: 100%;
+}
+
+.comment-write-wrapper .write-content-wrapper{
+    width: 100%;
+    margin-top: 1.45%;
+    height: 80%;
+}
+
+
+.comment-write-wrapper .write-comment-content{
+    display: inline-block;
+    width: 80%;
+    height: 98%;
+
+    float: left;
+    background-color: cyan;
+
+    margin-left: 30px;
+    margin-top: 1px;
+}
+
+.comment-write-wrapper .write-comment-content textarea{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+
+    font-size: 15px;
+    font-family: 'Noto Serif KR', serif;
+
+    padding: 10px;
+}
+
+.comment-write-wrapper .save-comment{
+    display: inline-block;
+    width: 12%;
+
+    float: right;
+    height: 100%;
+
+    margin-right: 30px;
+}
+
+#comment_save_btn{
+    width: 100%;
+    height: 100%;
+
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    font-size: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    padding-left: 4px;
+    border-radius: 5px;
+}
+
+#comment_save_btn{
+    width: 100%;
+    height: 100%;
+
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    font-size: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    padding-left: 4px;
+    border-radius: 5px;
+
+    background-color: white;
+}
+
+#comment_save_btn:active{
+    background-color: #a5a5a5;
+}
+
+#forms{
+    height: 100%;
+}
+
+.show-comment-list{
+    margin-top: 15px;
+}
+
+.show-comment-list .show-content-box-wrapper{
+    width: 90%;
+
+    display: inline-block;
+
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px #8080A0;
+    background-color: #D7D7DF;
+
+    overflow: auto;
+}
+
+.show-content-box-wrapper .comment-list-wrapper{
+    /*background-color: cyan;*/
+
+    width: 90%;
+    display: inline-block;
+
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.comment-list-wrapper .single-comment-wrapper{
+    /*background-color: yellow;*/
+    margin-bottom: 20px;
+
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px #8080A0;
+    background-color: white;
+}
+
+.single-comment-wrapper .comment-writer{
+    display: inline-block;
+    float: left;
+    font-weight: bold;
+    font-size: 23px;
+
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.single-comment-wrapper .comment-time{
+    display: inline-block;
+    float: left;
+    font-size: 13px;
+
+    margin-top: 21px;
+    margin-left: 8px;
+
+}
+
+.single-comment-wrapper .comment-content{
+    display: inline-block;
+    width: 95%;
+    font-size: 16px;
+    text-align: left;
+
+    padding-bottom: 15px;
+}
+
+.single-comment-wrapper .comment-delete{
+    display: inline-block;
+    font-weight: bold;
+
+    font-size: 15px;
+
+    float: right;
+    margin-right: 23px;
+    margin-top: 20px;
+}
+
+.single-comment-wrapper .comment-delete a{
+    text-decoration: none;
+    color: black;
+}
+
+input[type=text], textarea {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    border: 1px solid #DDDDDD;
+}
+
+input[type=text]:focus, textarea:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
+}

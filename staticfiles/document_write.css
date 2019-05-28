@@ -51,12 +51,16 @@
 }
 
 .box-content .textarea-wrapper{
-    height: 610px;
+    height: 630px;
 }
 
 .box-content .textarea-wrapper textarea{
     width: 90%;
     height: 90%;
+}
+
+.box-content .button-wrapper{
+    height: 60px;
 }
 
 .box-content .button-wrapper input{
@@ -73,4 +77,8 @@
 
 .box-content .button-wrapper input[type=submit]:active{
     background-color: #a5a5a5;
+}
+
+.box-content .textarea-wrapper label{
+    display: none;
 }

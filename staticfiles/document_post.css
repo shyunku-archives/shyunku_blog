@@ -1,5 +1,6 @@
-.content-field-wrapper {
-    height: 600px;
+.content-field-wrapper{
+    text-align: center;
+    font-family: 'Noto Serif KR', serif;
 }
 
 .content-field-wrapper .content-box{
@@ -7,29 +8,74 @@
     border-radius: 10px;
     box-shadow: 3px 3px 3px 3px #8080A0;
 
-    width: 98%;
-    height: 90%;
+    width: 68%;
 
+    display: inline-block;
     text-align: center;
 }
 
-.content-box .post-title{
-    padding-top: 50px;
+.content-box .post-title-board{
+    margin-top: 15px;
     font-family: 'Noto Serif KR', serif;
-}
 
-.content-box .post-title h1{
-    font-size: 40px;
+    font-size: 15px;
 }
 
 .post-content-wrapper{
     text-align: center;
-    height: 100%;
 }
 
-.post-content-wrapper .post-content{
+.post-content-wrapper .post-body-wrapper{
     display: inline-block;
     width: 90%;
-    height: 100%;
+    text-align: center;
+    font-family: 'Noto Serif KR', serif;
+}
+
+.post-content-wrapper .post-body-wrapper .post-content{
+    border-radius: 10px;
+
+    background-color: #F0F0F0;
+    display: inline-block;
     text-align: justify;
+    width: 90%;
+
+    padding: 30px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.post-content-wrapper .post-path-content .post-title{
+    font-weight: bold;
+    font-size: 30px;
+
+    float: left;
+    padding-left: 10px;
+
+    width: 100%;
+    text-align: left;
+}
+
+.post-content-wrapper .post-path-content .post-poster{
+    font-weight: bold;
+    font-size: 12px;
+
+    float: left;
+    text-align: left;
+    width: 70%;
+    padding-left: 10px;
+
+    display: inline-block;
+}
+
+.post-content-wrapper .post-path-content .post-view-cnt{
+    font-weight: bold;
+    font-size: 12px;
+
+    float: right;
+    text-align: right;
+    width: 20%;
+    padding-right: 10px;
+
+    display: inline-block;
 }
