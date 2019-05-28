@@ -1,5 +1,4 @@
 from django.db import models
-from ckeditor.fields import RichTextField
 from django_summernote import models as summer_model
 from django_summernote import fields as summer_fields
 
