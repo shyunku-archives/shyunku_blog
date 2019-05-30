@@ -53,7 +53,7 @@ USER_INFO_CONDITION = {
 
 PROCESS_RATE = '84'
 SITE_VER = '0.7.0v beta-test'
-CSS_VER = 140
+CSS_VER = 141
 
 PAGE_MAX_DETAILS = 15       # 게시글 한 페이지당 보여지는 포스팅 수
 PAGE_MAX_CHAPTER = 10       # 게시판 페이지가 한번에 보여지는 수
