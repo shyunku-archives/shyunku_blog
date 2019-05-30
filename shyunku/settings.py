@@ -23,15 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'x_bp^)367cc*j)qwdj39&!du=wmo%n52!5n_m)vrb9c*^ru0)x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '.ap-northeast-2.compute.amazonaws.com',
     'localhost',
     '127.0.0.1',
-    '13.125.75.103',
-    'soft.shyunku-blog.com',
-    'shyunku-blog.com',
+    '15.164.138.137',
 ]
 
 
