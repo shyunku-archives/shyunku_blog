@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
+# -*- coding: utf8 -*-
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -25,12 +25,7 @@ SECRET_KEY = 'x_bp^)367cc*j)qwdj39&!du=wmo%n52!5n_m)vrb9c*^ru0)x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    '.ap-northeast-2.compute.amazonaws.com',
-    'localhost',
-    '127.0.0.1',
-    '15.164.138.137',
-]
+ALLOWED_HOSTS = ['*']
 
 
 #USER-MADE
@@ -55,8 +50,8 @@ PROCESS_RATE = '84'
 SITE_VER = '0.7.0v beta-test'
 CSS_VER = 141
 
-PAGE_MAX_DETAILS = 15       # 게시글 한 페이지당 보여지는 포스팅 수
-PAGE_MAX_CHAPTER = 10       # 게시판 페이지가 한번에 보여지는 수
+PAGE_MAX_DETAILS = 15
+PAGE_MAX_CHAPTER = 10
 
 BUTTON_PRESSED_COLOR = "#a5a5a5"
 
