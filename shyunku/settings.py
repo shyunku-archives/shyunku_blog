@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 # -*- coding: utf8 -*-
 import os
-import mimetypes
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,8 +26,6 @@ SECRET_KEY = 'x_bp^)367cc*j)qwdj39&!du=wmo%n52!5n_m)vrb9c*^ru0)x'
 DEBUG = False
 
 ALLOWED_HOSTS = '*'
-
-mimetypes.add_type("text/css", ".css", True)
 
 
 #USER-MADE
