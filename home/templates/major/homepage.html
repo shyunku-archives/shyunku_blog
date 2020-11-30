@@ -4,14 +4,14 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../../static/main_style.css?ver={{ css_version }}">
         <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Noto+Serif+KR|Noto+Sans+KR&display=swap&subset=korean" rel="stylesheet">
-        <title>션쿠의 개인 블로그</title>
+        <title>션쿠의 잊혀진 블로그</title>
     </head>
     <body>
         <!-- 아래까지 공통 부분 -->
         <div class="background-content">
             <div class="logo">
                 <a href="../homepage">
-                    {% load staticfiles %}
+                    {% load static %}
                     <img src="{% static "logo.png" %}">
                 </a>
             </div>
@@ -49,7 +49,7 @@
                     <h1>션쿠의 블로그에 오신 것을 환영합니다! 현재 베타 테스트 중입니다...</h1>
                 </div>
                 <div class="semi-title">
-                SITE VERSION : {{ version }}<br>Last Update : 2019-05-25 PM 4:23<br>page viewed : {{ variables.visits }}<br>
+                SITE VERSION : {{ version }}<br>Last Update : 2020-12-01 AM 2:05<br>page viewed : {{ variables.visits }}<br>
                     Log-In ID : {{ request.session.userid }}<br>Site Building Process : {{ process_rate }}%
                 </div>
                 <div class="main-content">
@@ -58,14 +58,11 @@
                     <br><br>
                     제 블로그에는 '자유게시판'에서만 게시글을 쓰거나 댓글을 달 수 있지만, 다른 게시판에서는 댓글만 달 수 있습니다.<br>
                     게시글을 올리거나 댓글을 남기시려면 로그인을 해야 합니다.<br>
-                    댓글이나 게시글은 내용에 따라 임의로 관리자가 삭제할 수 있으며, IP 밴을 가할 수 있다는 점 주의 바랍니다.<br>
+                    댓글이나 게시글은 내용에 따라 임의로 관리자가 삭제할 수 있는 점 주의 바랍니다.<br>
                     <br><br>
-                    사이트 개발은 6월 중순 내로 완료될 예정입니다.<br>
-                    베타 테스트 동안 댓글/게시글/회원 정보가 삭제될 수 있습니다.<br>
-                    개발 완료 후 베타 테스트가 끝나고 알파 버전 배포할 때 모든 데이터가 초기화됩니다.<br>
+                    2020년 12월 기준 해당 사이트 개발은 2019년 5월에 중단되었고, 더 이상 손대지 않을 예정입니다.<br>
                     <br><br>
-                    아쉽게도, 아직 게시글 삭제 기능은 없습니다.
-                    모든 피드백은 개인 메시지, 카톡 또는 이메일 whdudgns7321@gmail.com 으로 부탁드립니다.
+                    게시글 삭제 기능은 없습니다. 피드백 안 받습니다.
                 </div>
             </div>
         </div>
