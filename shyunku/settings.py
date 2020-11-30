@@ -25,7 +25,7 @@ SECRET_KEY = 'x_bp^)367cc*j)qwdj39&!du=wmo%n52!5n_m)vrb9c*^ru0)x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = '*'
 
 
 #USER-MADE
@@ -46,8 +46,8 @@ USER_INFO_CONDITION = {
     'PW_MIN_LEN' : 6,
 }
 
-PROCESS_RATE = '84'
-SITE_VER = '0.7.0v beta-test'
+PROCESS_RATE = '100'
+SITE_VER = '1.0.0v alpha'
 CSS_VER = 141
 
 PAGE_MAX_DETAILS = 15
